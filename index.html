@@ -1,10 +1,8 @@
-Here
-Here is the final HTML with:
+Here is the final HTML with the requested changes:
 
-· The title “Yono Games Platform” inside a black tag with a strong neon light/glow effect underneath (cyan/blue glow).
-· All download buttons (main grid, download page main button, and “Other Yono Apps” small buttons) changed to green gradients.
-· The “Back to Home” button remains orange/red as before.
-· All other features (25 apps, FAQ, info cards, modals, lightning bolts, etc.) stay unchanged.
+· Title “Yono Games Platform” now has 3 colors: Green for “Yono”, Red for “Games”, Pink for “Platform” (static but with a subtle glow).
+· Next page download button (on the download page) changed to pink – all other download buttons (main grid, small buttons in “Other Yono Apps”) remain green.
+· All other features (25 apps, FAQ, info cards, modals, lightning bolts, black tag with light under title) stay the same.
 
 ```html
 <!DOCTYPE html>
@@ -167,7 +165,6 @@ Here is the final HTML with:
             border-radius: 80px;
             box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
             margin-top: 10px;
-            /* Light under the title (neon glow) */
             position: relative;
         }
         .title-black-tag::after {
@@ -188,38 +185,26 @@ Here is the final HTML with:
             100% { opacity: 0.5; width: 60%; left: 20%; }
         }
 
-        /* Split title animations - each word has its own 5-color slow gradient */
+        /* Title with 3 colors: Green, Red, Pink */
         .title-word {
             display: inline-block;
             font-size: 2.8rem;
             font-weight: 800;
             letter-spacing: 2px;
             margin: 0 5px;
-            background-size: 200% 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: wordGlow 4s ease infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
         }
-        /* Yono word - 5 colors */
         .word-yono {
-            background: linear-gradient(135deg, #ff0040, #ff8000, #ffff00, #00ff40, #0080ff);
-            background-size: 300% 300%;
+            color: #00ff00; /* Green */
+            text-shadow: 0 0 8px #00ff00;
         }
-        /* Games word - 5 colors different order */
         .word-games {
-            background: linear-gradient(135deg, #ff00ff, #00ffff, #ff6600, #33ff33, #ff0066);
-            background-size: 300% 300%;
+            color: #ff0000; /* Red */
+            text-shadow: 0 0 8px #ff0000;
         }
-        /* Platform word - 5 colors different */
         .word-platform {
-            background: linear-gradient(135deg, #00ffcc, #ffcc00, #ff3399, #66ff33, #3399ff);
-            background-size: 300% 300%;
-        }
-        @keyframes wordGlow {
-            0% { background-position: 0% 50%; filter: drop-shadow(0 0 3px rgba(255,255,255,0.3)); }
-            50% { background-position: 100% 50%; filter: drop-shadow(0 0 12px rgba(255,255,255,0.6)); }
-            100% { background-position: 0% 50%; filter: drop-shadow(0 0 3px rgba(255,255,255,0.3)); }
+            color: #ff69b4; /* Pink */
+            text-shadow: 0 0 8px #ff69b4;
         }
 
         .container {
@@ -322,7 +307,7 @@ Here is the final HTML with:
             margin-top: 6px;
         }
 
-        /* ALL DOWNLOAD BUTTONS GREEN */
+        /* ALL DOWNLOAD BUTTONS IN MAIN GRID - GREEN */
         .download-btn {
             display: block;
             width: 100%;
@@ -512,9 +497,9 @@ Here is the final HTML with:
             padding-left: 12px;
         }
 
-        /* GREEN MAIN DOWNLOAD BUTTON */
+        /* NEXT PAGE DOWNLOAD BUTTON - PINK (override green) */
         .final-download-btn {
-            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
             font-size: 1rem;
             font-weight: 800;
@@ -522,7 +507,7 @@ Here is the final HTML with:
             display: block;
             width: 100%;
             margin: 20px 0 16px 0;
-            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.3);
+            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
@@ -533,8 +518,8 @@ Here is the final HTML with:
         }
         .final-download-btn:hover {
             transform: scale(0.98);
-            background: linear-gradient(95deg, #1e8449, #27ae60);
-            box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
+            background: linear-gradient(95deg, #e91e63, #c51162);
+            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
         /* BACK TO HOME button remains orange/red */
@@ -600,7 +585,7 @@ Here is the final HTML with:
             display: inline-block;
         }
 
-        /* GREEN SMALL DOWNLOAD BUTTON */
+        /* GREEN SMALL DOWNLOAD BUTTON for other apps */
         .small-download {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
             font-size: 0.8rem;
@@ -757,7 +742,7 @@ Here is the final HTML with:
         </div>
     </div>
 
-    <!-- HEADER with 5 colored lightning bolts and split animated title + BLACK TAG + LIGHT UNDER TITLE -->
+    <!-- HEADER with 5 colored lightning bolts and 3-color title (Green, Red, Pink) -->
     <header>
         <div class="lightning-row">
             <span class="lightning">⚡</span>
@@ -783,7 +768,7 @@ Here is the final HTML with:
     </footer>
 
     <script>
-        // ---------- 25 APPS DATA (same as before) ----------
+        // ---------- 25 APPS DATA ----------
         const appsData = [
             { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -965,6 +950,7 @@ Here is the final HTML with:
                             <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
+                        <!-- PINK DOWNLOAD BUTTON for next page -->
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
                         
                         <div class="app-description">
