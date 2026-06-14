@@ -1,6 +1,4 @@
 
-Here is the final 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -505,26 +503,7 @@ Here is the final
             box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
-        .back-home-btn {
-            background: linear-gradient(115deg, #ff8c00, #ff2e00);
-            margin-top: 20px;
-            display: inline-block;
-            width: auto;
-            padding: 12px 36px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 60px;
-            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-            color: white;
-            letter-spacing: 1px;
-        }
-        .back-home-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(255, 46, 0, 0.5);
-        }
+        /* BACK TO HOME button removed from download page - no styles needed */
 
         .other-apps-title {
             font-size: 1.4rem;
@@ -689,7 +668,6 @@ Here is the final
             .card-stat { min-width: 48px; }
             .stats-row { gap: 12px; }
             .download-header h2 { font-size: 1.4rem; }
-            .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
             .other-card { width: 210px; }
             .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
             .small-download { font-size: 0.75rem; padding: 6px 0; }
@@ -750,7 +728,6 @@ Here is the final
 
     <script>
         // ---------- REORDERED APPS DATA ----------
-        // Original full list
         const originalApps = [
             { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -779,13 +756,11 @@ Here is the final
             { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg", category: "Slots" }
         ];
 
-        // Reorder: Teen Patti Master first, Good Slots second, then all except Taurus and Yono Rummy, then Yono Rummy, then Taurus App last
         const teenPattiMaster = originalApps.find(a => a.name === "Teen Patti Master");
         const goodSlots = originalApps.find(a => a.name === "Good Slots");
         const yonoRummy = originalApps.find(a => a.name === "Yono Rummy");
         const taurus = originalApps.find(a => a.name === "Taurus App");
         const rest = originalApps.filter(a => a.name !== "Teen Patti Master" && a.name !== "Good Slots" && a.name !== "Yono Rummy" && a.name !== "Taurus App");
-        
         const appsData = [teenPattiMaster, goodSlots, ...rest, yonoRummy, taurus];
 
         function getCardStats(appName, bonusAmount) {
@@ -965,10 +940,10 @@ Here is the final
                             ${faqHtml}
                         </div>
                         
-                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
+                        <!-- Back to Home button removed -->
                     </div>
                     
-                    <div class="other-apps-title">✨ Other Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-title">Other Yono Apps</div>
                     <div class="other-apps-grid" id="otherAppsGrid">
                         ${otherAppsHtml}
                     </div>
@@ -988,12 +963,7 @@ Here is the final
                 });
             });
             
-            const backHomeBtn = document.getElementById('backToHomeBtn');
-            if (backHomeBtn) {
-                backHomeBtn.addEventListener('click', () => {
-                    history.back();
-                });
-            }
+            // No backHomeBtn event listener needed
             
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
