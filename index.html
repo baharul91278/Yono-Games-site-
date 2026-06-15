@@ -1,12 +1,4 @@
-Here is the final HTML with the requested changes:
-
-· Download button (on the next page) changed to a green + pink mix gradient.
-· Signup Bonus amount (e.g., ₹20) is now red.
-· Min Withdrawal amount (e.g., ₹100) is now green.
-· Any potential “📥 Error” text has been removed (no error message appears).
-
-All other features (35 apps, pulsing stars, 3‑color title, menu modals, etc.) remain unchanged.
-
+Here 
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -886,15 +878,12 @@ All other features (35 apps, pulsing stars, 3‑color title, menu modals, etc.) 
                 `;
             });
             
-            // Bonus amount in red, withdrawal amount in green
-            const bonusNumber = selectedApp.bonus.replace('₹', '');
-            const withdrawalNumber = selectedApp.withdrawal.replace('₹', '');
-            
+            // Bonus amount in red, withdrawal amount in green - removed 🤑 emoji
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
                         <h2>📥 ${selectedApp.name} APK</h2>
-                        <p>🎁 Signup Bonus: <span class="bonus-amount">${selectedApp.bonus}</span>  |  🤑 Min Withdrawal: <span class="withdrawal-amount">${selectedApp.withdrawal}</span></p>
+                        <p>🎁 Signup Bonus: <span class="bonus-amount">${selectedApp.bonus}</span>  |  Min Withdrawal: <span class="withdrawal-amount">${selectedApp.withdrawal}</span></p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
@@ -904,7 +893,7 @@ All other features (35 apps, pulsing stars, 3‑color title, menu modals, etc.) 
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                            <div class="stat-item"><div class="stat-value">${bonusNumber}</div><div class="stat-label">Bonus</div></div>
+                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
