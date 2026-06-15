@@ -1,10 +1,13 @@
 
+Here is the final HTML with exactly 35 real money apps, where Teen Patti Master is shown first and Yono Rummy second – exactly as you requested. All other features (pink header with 5 pulsing stars, download pages, menu, modals, back navigation) remain fully functional.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Yono Games Platform | 25 Real Money Apps | Fast Download</title>
+    <title>Yono Games Platform | 35 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -104,10 +107,9 @@
             display: block;
         }
 
-        /* HEADER with 5 colored lightning bolts and 3-color title */
+        /* HEADER: Pink background + 5 pulsing stars */
         header {
-            background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
-            background-size: 300% 300%;
+            background: linear-gradient(135deg, #ff99cc, #ff3388);
             color: white;
             padding: 40px 20px;
             text-align: center;
@@ -116,64 +118,28 @@
             overflow: hidden;
         }
 
-        .lightning-row {
+        .stars-row {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 20px;
         }
-        .lightning {
-            font-size: 2.2rem;
+        .star {
+            font-size: 2.5rem;
             display: inline-block;
-            animation: lightningColor 4s ease infinite, slowPulseMove 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 5px currentColor);
+            animation: starGlowPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 4px gold);
         }
-        .lightning:nth-child(1) { animation-delay: 0s; }
-        .lightning:nth-child(2) { animation-delay: 0.3s; }
-        .lightning:nth-child(3) { animation-delay: 0.6s; }
-        .lightning:nth-child(4) { animation-delay: 0.9s; }
-        .lightning:nth-child(5) { animation-delay: 1.2s; }
+        .star:nth-child(1) { animation-delay: 0s; }
+        .star:nth-child(2) { animation-delay: 0.2s; }
+        .star:nth-child(3) { animation-delay: 0.4s; }
+        .star:nth-child(4) { animation-delay: 0.6s; }
+        .star:nth-child(5) { animation-delay: 0.8s; }
 
-        @keyframes lightningColor {
-            0% { color: #ff0040; text-shadow: 0 0 5px #ff0040; }
-            20% { color: #ff8000; text-shadow: 0 0 5px #ff8000; }
-            40% { color: #ffff00; text-shadow: 0 0 5px #ffff00; }
-            60% { color: #00ff40; text-shadow: 0 0 5px #00ff40; }
-            80% { color: #0080ff; text-shadow: 0 0 5px #0080ff; }
-            100% { color: #ff0040; text-shadow: 0 0 5px #ff0040; }
-        }
-
-        @keyframes slowPulseMove {
-            0% { transform: scale(1) translateY(0px); opacity: 0.8; }
-            50% { transform: scale(1.2) translateY(-4px); opacity: 1; text-shadow: 0 0 12px gold; }
-            100% { transform: scale(1) translateY(0px); opacity: 0.8; }
-        }
-
-        .title-black-tag {
-            display: inline-block;
-            background: #000000;
-            padding: 12px 28px;
-            border-radius: 80px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
-            margin-top: 10px;
-            position: relative;
-        }
-        .title-black-tag::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 10%;
-            width: 80%;
-            height: 4px;
-            background: linear-gradient(90deg, #00ffff, #0088ff, #00ffff);
-            border-radius: 4px;
-            filter: blur(6px);
-            animation: lightPulse 1.5s ease-in-out infinite;
-        }
-        @keyframes lightPulse {
-            0% { opacity: 0.5; width: 60%; left: 20%; }
-            50% { opacity: 1; width: 80%; left: 10%; box-shadow: 0 0 12px cyan; }
-            100% { opacity: 0.5; width: 60%; left: 20%; }
+        @keyframes starGlowPulse {
+            0% { transform: scale(1); opacity: 0.8; text-shadow: 0 0 3px gold; }
+            50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 20px gold, 0 0 8px orange; }
+            100% { transform: scale(1); opacity: 0.8; text-shadow: 0 0 3px gold; }
         }
 
         .title-word {
@@ -470,7 +436,6 @@
             padding-left: 12px;
         }
 
-        /* PINK main download button on next page */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -536,7 +501,6 @@
             display: inline-block;
         }
 
-        /* CYAN small download button for "Other Yono Apps" */
         .small-download {
             background: linear-gradient(95deg, #00bcd4, #00e5ff);
             font-size: 0.8rem;
@@ -649,9 +613,8 @@
         }
         @media (max-width: 640px) {
             .menu-btn { font-size: 1rem; padding: 4px 12px; }
-            .lightning { font-size: 1.5rem; gap: 12px; }
-            .title-black-tag { padding: 8px 16px; }
-            .title-word { font-size: 1.4rem; margin: 0 2px; }
+            .star { font-size: 1.6rem; gap: 15px; }
+            .title-word { font-size: 1.6rem; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
@@ -693,14 +656,14 @@
     </div>
 
     <header>
-        <div class="lightning-row">
-            <span class="lightning">⚡</span>
-            <span class="lightning">⚡</span>
-            <span class="lightning">⚡</span>
-            <span class="lightning">⚡</span>
-            <span class="lightning">⚡</span>
+        <div class="stars-row">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
         </div>
-        <div class="title-black-tag">
+        <div>
             <span class="title-word word-yono">Yono</span>
             <span class="title-word word-games">Games</span>
             <span class="title-word word-platform">Platform</span>
@@ -717,9 +680,26 @@
     </footer>
 
     <script>
-        // ---------- REORDERED APPS DATA ----------
-        const originalApps = [
-            { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
+        // ---------- 35 APPS DATA (Teen Patti Master first, Yono Rummy second) ----------
+        // Original list (38 apps), we remove 3 to get 35. Keep all new 13 + 22 from old (remove 3 old apps).
+        // We'll remove: "Taurus App", "Bet 213", "All Teen Patti Master" (3 apps) to keep exactly 35.
+        const allApps = [
+            // 13 new apps (keep all)
+            { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg", category: "Slots" },
+            { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg", category: "Slots" },
+            { name: "Jaiho 91", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg", category: "Casino" },
+            { name: "Rummy Ludo", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://rummyludoapp37.com/", img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg", category: "Rummy" },
+            { name: "ABC Rummy", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg", category: "Rummy" },
+            { name: "Rummy 91", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk", img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg", category: "Rummy" },
+            { name: "Love Rummy", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg", category: "Rummy" },
+            { name: "Spin Crush", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg", category: "Spin" },
+            { name: "Top Rummy", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg", category: "Rummy" },
+            { name: "New Yono Games", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/p6BTzfRz/1000022725.jpg", category: "Casino" },
+            { name: "All Yono App", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/S7MsNPQ5/1000022725.jpg", category: "Casino" },
+            { name: "Hello Rummy", bonus: "₹34", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/27DSP5zR/1000022725.jpg", category: "Rummy" },
+            { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg", category: "Rummy" },
+            
+            // 22 old apps (removed: Taurus App, Bet 213, All Teen Patti Master)
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
             { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
             { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg", category: "Rummy" },
@@ -737,21 +717,18 @@
             { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg", category: "Slots" },
             { name: "Rummy Most", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://th1.my/BY1JWS/3gvute0", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg", category: "Rummy" },
             { name: "Teen Patti Gold Old Version", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", category: "Card" },
-            { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
             { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
-            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
             { name: "Boss Rummy", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg", category: "Rummy" },
             { name: "Yono 777", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg", category: "Slots" },
             { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg", category: "VIP" },
             { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg", category: "Slots" }
         ];
 
-        const teenPattiMaster = originalApps.find(a => a.name === "Teen Patti Master");
-        const goodSlots = originalApps.find(a => a.name === "Good Slots");
-        const yonoRummy = originalApps.find(a => a.name === "Yono Rummy");
-        const taurus = originalApps.find(a => a.name === "Taurus App");
-        const rest = originalApps.filter(a => a.name !== "Teen Patti Master" && a.name !== "Good Slots" && a.name !== "Yono Rummy" && a.name !== "Taurus App");
-        const appsData = [teenPattiMaster, goodSlots, ...rest, yonoRummy, taurus];
+        // Reorder: Teen Patti Master first, Yono Rummy second
+        const teenPattiMaster = allApps.find(a => a.name === "Teen Patti Master");
+        const yonoRummy = allApps.find(a => a.name === "Yono Rummy");
+        const rest = allApps.filter(a => a.name !== "Teen Patti Master" && a.name !== "Yono Rummy");
+        const appsData = [teenPattiMaster, yonoRummy, ...rest];
 
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
@@ -783,7 +760,7 @@
         function getDescription(appName, category, bonusAmount) {
             if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
             if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
-            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
+            if (category === "Spin") return `Exciting spin games on ${appName}. Get ${bonusAmount} free cash, daily rewards, and fast UPI withdrawals.`;
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
@@ -1075,7 +1052,7 @@
             showInfoModal('⭐ About Us – Yono Games Platform', `
                 <p><strong>Who We Are</strong><br>Yono Games Platform is the #1 trusted destination for real-money gaming enthusiasts. We bring together the best earning apps in one place.</p>
                 <p><strong>Our Mission</strong><br>To provide 100% verified, transparent, and up-to-date information about signup bonuses, withdrawal limits, and game features.</p>
-                <p><strong>What We Offer</strong><br>✅ 25+ curated real-money gaming apps<br>✅ Daily updated signup bonus offers<br>✅ Clear minimum withdrawal information (₹100)<br>✅ Direct, safe APK download links<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support</p>
+                <p><strong>What We Offer</strong><br>✅ 35+ curated real-money gaming apps<br>✅ Daily updated signup bonus offers<br>✅ Clear minimum withdrawal information (₹100)<br>✅ Direct, safe APK download links<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support</p>
                 <p><strong>Why Trust Us</strong><br>- We manually test every app before listing.<br>- If an app stops paying or changes terms unfairly, we remove it immediately.<br>- Completely transparent about affiliate relationships (we may earn a commission).<br>- No hidden fees or misleading information.</p>
                 <p><strong>Contact Information</strong><br>📧 Email: support@yonogamesplatform.com<br>⏱️ Response time: Within 24 hours</p>
                 <p><strong>Our Commitment</strong><br>Your earnings and safety are our top priority. We continuously update our list to ensure you only get the best and most reliable apps.</p>
