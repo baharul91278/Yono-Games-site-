@@ -1,3 +1,11 @@
+Here is the final HTML with the requested changes:
+
+· Download button (on the next page) changed to a green + pink mix gradient.
+· Signup Bonus amount (e.g., ₹20) is now red.
+· Min Withdrawal amount (e.g., ₹100) is now green.
+· Any potential “📥 Error” text has been removed (no error message appears).
+
+All other features (35 apps, pulsing stars, 3‑color title, menu modals, etc.) remain unchanged.
 
 ```html
 <!DOCTYPE html>
@@ -105,7 +113,7 @@
             display: block;
         }
 
-        /* HEADER: Pink background + 5 pulsing stars + new 3‑color title */
+        /* HEADER: Pink background + 5 pulsing stars + 3‑color title */
         header {
             background: linear-gradient(135deg, #ff99cc, #ff3388);
             color: white;
@@ -140,7 +148,6 @@
             100% { transform: scale(1); opacity: 0.8; text-shadow: 0 0 3px gold; }
         }
 
-        /* New 3‑color title: green, black, white */
         .new-title {
             font-size: 2.8rem;
             font-weight: 800;
@@ -320,6 +327,16 @@
             margin-bottom: 6px;
         }
 
+        /* Bonus amount (red) and withdrawal amount (green) */
+        .bonus-amount {
+            color: #ff0000;
+            font-weight: 800;
+        }
+        .withdrawal-amount {
+            color: #008000;
+            font-weight: 800;
+        }
+
         .app-highlight {
             background: #fff7e8;
             padding: 24px 20px;
@@ -441,8 +458,9 @@
             padding-left: 12px;
         }
 
+        /* GREEN + PINK MIX gradient download button */
         .final-download-btn {
-            background: linear-gradient(95deg, #ff4081, #f50057);
+            background: linear-gradient(95deg, #27ae60, #ff4081);
             padding: 14px 20px;
             font-size: 1rem;
             font-weight: 800;
@@ -450,7 +468,7 @@
             display: block;
             width: 100%;
             margin: 20px 0 16px 0;
-            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
+            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
@@ -461,8 +479,8 @@
         }
         .final-download-btn:hover {
             transform: scale(0.98);
-            background: linear-gradient(95deg, #e91e63, #c51162);
-            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
+            background: linear-gradient(95deg, #1e8449, #e91e63);
+            box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
         }
 
         .other-apps-title {
@@ -868,11 +886,15 @@
                 `;
             });
             
+            // Bonus amount in red, withdrawal amount in green
+            const bonusNumber = selectedApp.bonus.replace('₹', '');
+            const withdrawalNumber = selectedApp.withdrawal.replace('₹', '');
+            
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
                         <h2>📥 ${selectedApp.name} APK</h2>
-                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
+                        <p>🎁 Signup Bonus: <span class="bonus-amount">${selectedApp.bonus}</span>  |  🤑 Min Withdrawal: <span class="withdrawal-amount">${selectedApp.withdrawal}</span></p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
@@ -882,7 +904,7 @@
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                            <div class="stat-item"><div class="stat-value">${bonusNumber}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
