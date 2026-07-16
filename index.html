@@ -26,87 +26,41 @@
             padding-bottom: 30px;
         }
 
-        /* ----- TOP NAVIGATION ----- */
+        /* ----- TOP NAVIGATION (Horizontal Links) ----- */
         .top-nav {
             background: #0a2e1d;
-            padding: 12px 16px;
+            padding: 12px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            gap: 8px 20px;
             border-bottom: 2px solid #ffcf8a;
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .nav-left a {
+        .top-nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.2s;
-            padding: 6px 12px;
-            border-radius: 40px;
-            cursor: pointer;
-            background: rgba(255, 255, 240, 0.1);
-            white-space: nowrap;
-        }
-        .nav-left a:hover {
-            background: #ffcf8a;
-            color: #0a2e1d;
-        }
-        .menu-container {
-            position: relative;
-        }
-        .menu-btn {
-            background: rgba(255, 255, 240, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
             padding: 6px 14px;
             border-radius: 40px;
             cursor: pointer;
-            transition: 0.2s;
-            backdrop-filter: blur(4px);
+            background: rgba(255, 255, 240, 0.08);
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 240, 0.08);
         }
-        .menu-btn:hover {
+        .top-nav a:hover {
             background: #ffcf8a;
             color: #0a2e1d;
+            border-color: #ffcf8a;
         }
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 45px;
-            right: 0;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            min-width: 180px;
-            z-index: 150;
-            overflow: hidden;
-            border: 1px solid #ffcf8a;
-        }
-        .dropdown a {
-            display: block;
-            padding: 12px 18px;
-            text-decoration: none;
-            color: #1e562a;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            cursor: pointer;
-            border-bottom: 1px solid #ffe6cc;
-        }
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-        .dropdown a:hover {
-            background: #fef1cf;
-            color: #b45900;
-        }
-        .dropdown.show {
-            display: block;
+        .top-nav a.active {
+            background: #ffcf8a;
+            color: #0a2e1d;
         }
 
         /* ----- HEADER & MARQUEE (unchanged) ----- */
@@ -651,7 +605,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Contact table (used in modals) */
+        /* Contact table */
         .contact-table {
             width: 100%;
             border-collapse: collapse;
@@ -698,6 +652,14 @@
         }
 
         @media (max-width: 640px) {
+            .top-nav {
+                gap: 4px 10px;
+                padding: 8px 12px;
+            }
+            .top-nav a {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
             .marquee-track .marquee-item {
                 font-size: 0.85rem;
                 padding: 3px 10px;
@@ -763,19 +725,12 @@
 </head>
 <body>
 
-    <!-- ===== TOP NAVIGATION ===== -->
+    <!-- ===== TOP NAVIGATION (Horizontal Links) ===== -->
     <div class="top-nav">
-        <div class="nav-left">
-            <a id="homeNavLink">🏠 HOME</a>
-        </div>
-        <div class="menu-container">
-            <button class="menu-btn" id="menuBtn">☰ MENU</button>
-            <div class="dropdown" id="dropdownMenu">
-                <a id="menuAbout">📋 About Us</a>
-                <a id="menuContact">📞 Contact Us</a>
-                <a id="menuDisclaimer">⚠️ Disclaimer</a>
-            </div>
-        </div>
+        <a href="#" id="navHome">🏠 Home</a>
+        <a href="#" id="navAbout">📋 About</a>
+        <a href="#" id="navContact">📞 Contact</a>
+        <a href="#" id="navDisclaimer">⚠️ Disclaimer</a>
     </div>
 
     <!-- ===== FLOATING SHARE BUTTON ===== -->
@@ -1247,7 +1202,7 @@
             if (e.target === customModal) closeModalAndResetHistory();
         });
 
-        // ---------- NAVIGATION & POPSTATE ----------
+        // ---------- POPSTATE ----------
         window.addEventListener('popstate', (event) => {
             if (customModal.style.display === 'flex') {
                 closeModalAndResetHistory();
@@ -1268,29 +1223,16 @@
             goToMainGrid();
         }
 
-        // ---------- MENU DROPDOWN ----------
-        const menuBtn = document.getElementById('menuBtn');
-        const dropdown = document.getElementById('dropdownMenu');
-        const menuAbout = document.getElementById('menuAbout');
-        const menuContact = document.getElementById('menuContact');
-        const menuDisclaimer = document.getElementById('menuDisclaimer');
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('show');
+        // ---------- NAVIGATION LINK HANDLERS ----------
+        document.getElementById('navHome').addEventListener('click', (e) => {
+            e.preventDefault();
+            resetToMainGrid();
         });
 
-        document.addEventListener('click', (e) => {
-            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-                dropdown.classList.remove('show');
-            }
-        });
-
-        // ---------- MENU ITEM HANDLERS ----------
-        menuAbout.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('📋 About Us', `
-                <p><strong>Welcome to yono games website</strong> – a comprehensive platform dedicated to bringing you the best real-money gaming apps in India. We curate and review apps that offer secure, fair, and profitable gaming experiences.</p>
+        document.getElementById('navAbout').addEventListener('click', (e) => {
+            e.preventDefault();
+            showInfoModal('📋 About Us – Yonogamessite.com', `
+                <p><strong>Welcome to Yonogamessite.com</strong> – a comprehensive platform dedicated to bringing you the best real-money gaming apps in India. We curate and review apps that offer secure, fair, and profitable gaming experiences.</p>
                 <p><strong>Our Mission:</strong> To help Indian users discover trustworthy apps with great bonuses, fast withdrawals, and exciting gameplay. We test each app thoroughly before listing.</p>
                 <p><strong>What We Offer:</strong></p>
                 <ul>
@@ -1300,30 +1242,30 @@
                     <li>✅ Direct APK download links</li>
                     <li>✅ 24/7 support via email & Telegram</li>
                 </ul>
-                <p><strong>Contact:</strong> support@yonogameswebsite.com</p>
+                <p><strong>Contact:</strong> support@Yonogamessite.com</p>
                 <p style="margin-top: 16px; background: #fef4e6; padding: 10px; border-radius: 12px; text-align:center;">🌟 <strong>Trusted by thousands of players across India</strong></p>
             `);
         });
 
-        menuContact.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('📞 Contact Us', `
-                <p><strong>Get in touch with yono games website</strong></p>
+        document.getElementById('navContact').addEventListener('click', (e) => {
+            e.preventDefault();
+            showInfoModal('📞 Contact Us – Yonogamessite.com', `
+                <p><strong>Get in touch with Yonogamessite.com</strong></p>
                 <p>If you have any questions, feedback, or business inquiries, please reach out to us through the following channels:</p>
                 <table class="contact-table">
                     <tr><th>Method</th><th>Details</th></tr>
-                    <tr><td><strong>Email</strong></td><td><a href="mailto:support@yonogameswebsite.com" class="contact-email">support@yonogameswebsite.com</a></td></tr>
-                    <tr><td><strong>Telegram</strong></td><td><a href="https://t.me/yonogameswebsite" target="_blank" class="contact-telegram">@yonogameswebsite</a></td></tr>
+                    <tr><td><strong>Email</strong></td><td><a href="mailto:support@Yonogamessite.com" class="contact-email">support@Yonogamessite.com</a></td></tr>
+                    <tr><td><strong>Telegram</strong></td><td><a href="https://t.me/Yonogamessite" target="_blank" class="contact-telegram">@Yonogamessite</a></td></tr>
                 </table>
                 <p><strong>Business & Advertisement Queries:</strong><br>If you are an app developer or operator and wish to promote your application on our platform, please contact us via email with your proposal.</p>
                 <p style="margin-top: 16px; background: #e8f5e9; padding: 10px; border-radius: 12px; text-align:center;">⚡ <strong>We respond within 24 hours</strong></p>
             `);
         });
 
-        menuDisclaimer.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('⚠️ Disclaimer', `
-                <p><strong>yono games website – Disclaimer</strong></p>
+        document.getElementById('navDisclaimer').addEventListener('click', (e) => {
+            e.preventDefault();
+            showInfoModal('⚠️ Disclaimer – Yonogamessite.com', `
+                <p><strong>Yonogamessite.com – Disclaimer</strong></p>
                 <p><strong>1. Third-Party Apps:</strong> We do not develop, operate, or control any of the apps listed. All apps are owned and managed by independent third-party entities.</p>
                 <p><strong>2. No Guarantee:</strong> Bonus amounts, withdrawal limits, and payout times are subject to change by the app developers. We strive to keep information accurate but do not guarantee its completeness.</p>
                 <p><strong>3. Financial Risk:</strong> Real-money gaming involves financial risk. You may lose money. Only play with funds you can afford to lose. You are solely responsible for your decisions.</p>
@@ -1334,15 +1276,6 @@
                 <p style="margin-top: 16px; background: #ffebee; padding: 10px; border-radius: 12px; text-align:center; border-left: 4px solid #d50000;">🔞 <strong>This platform is strictly for users aged 18+.</strong></p>
             `);
         });
-
-        // ---------- HOME LINK ----------
-        const homeLink = document.getElementById('homeNavLink');
-        if (homeLink) {
-            homeLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                resetToMainGrid();
-            });
-        }
 
         // ---------- INIT ----------
         function init() {
