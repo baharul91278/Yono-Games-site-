@@ -1,4 +1,4 @@
-00html>
+00ht999
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +74,7 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* ====== NEW TAG BOXES (4 separate boxes) ====== */
+    /* ====== 5 INFO BOXES (Dynamic per game) ====== */
     .info-boxes { padding: 12px; background: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
     .info-box { background: white; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
     .info-box .box-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -178,53 +178,32 @@
       </div>
     </div>
     
-    <!-- ====== NEW INFO BOXES (4 boxes) ====== -->
-    <div class="info-boxes">
-      <!-- Box 1: MBM Bet Overview -->
+    <!-- ====== 5 DYNAMIC INFO BOXES (per game) ====== -->
+    <div class="info-boxes" id="infoBoxes">
+      <!-- Box 1: Overview -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">🚀</span> About MBM Bet</div>
-        <div class="box-content">
-          <strong>MBM Bet</strong> is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.<br><br>
-          The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.
-        </div>
+        <div class="box-title"><span class="icon">🚀</span> <span id="box1Title">Game Overview</span></div>
+        <div class="box-content" id="box1Content">Loading...</div>
       </div>
-      
       <!-- Box 2: Key Features -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">✨</span> Key Features & Benefits</div>
-        <div class="box-content">
-          <ul>
-            <li><strong>Welcome Bonus:</strong> Get ₹39 as a sign-up bonus when you register</li>
-            <li><strong>Low Withdrawal:</strong> Minimum withdrawal amount is just ₹100</li>
-            <li><strong>Secure Payments:</strong> Fast and secure payment processing</li>
-            <li><strong>24/7 Support:</strong> Round-the-clock customer support</li>
-            <li><strong>Fair Play:</strong> Certified random number generator for fair gameplay</li>
-            <li><strong>Multiple Games:</strong> Wide variety of skill-based games</li>
-          </ul>
-        </div>
+        <div class="box-title"><span class="icon">✨</span> <span id="box2Title">Key Features</span></div>
+        <div class="box-content" id="box2Content">Loading...</div>
       </div>
-      
       <!-- Box 3: How to Download -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">📥</span> How to Download & Install</div>
-        <div class="box-content">
-          Downloading MBM Bet is simple and straightforward. Follow these easy steps:<br><br>
-          <strong>1.</strong> Click on the download button above<br>
-          <strong>2.</strong> Allow installation from unknown sources in your device settings<br>
-          <strong>3.</strong> Install the APK file once downloaded<br>
-          <strong>4.</strong> Register with your mobile number<br>
-          <strong>5.</strong> Verify your account and start playing<br>
-          <strong>6.</strong> Claim your welcome bonus
-        </div>
+        <div class="box-title"><span class="icon">📥</span> <span id="box3Title">How to Download</span></div>
+        <div class="box-content" id="box3Content">Loading...</div>
       </div>
-      
       <!-- Box 4: Safety & Security -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">🔒</span> Safety & Security</div>
-        <div class="box-content">
-          Your safety and security are our top priorities. MBM Bet uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>
-          The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.
-        </div>
+        <div class="box-title"><span class="icon">🔒</span> <span id="box4Title">Safety & Security</span></div>
+        <div class="box-content" id="box4Content">Loading...</div>
+      </div>
+      <!-- Box 5: Premium Overview (MBM Bet style) -->
+      <div class="info-box">
+        <div class="box-title"><span class="icon">🏆</span> <span id="box5Title">Premium Experience</span></div>
+        <div class="box-content" id="box5Content">Loading...</div>
       </div>
     </div>
     
@@ -346,6 +325,46 @@
 
     let historyStack = [];
 
+    // ====== GENERATE INFO BOXES PER GAME ======
+    function generateGameInfo(gameName, bonus, withdrawal) {
+      const name = gameName.replace(/ APK$/, '');
+      return {
+        box1: {
+          title: `🚀 About ${name}`,
+          content: `<strong>${name}</strong> is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.<br><br>The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.`
+        },
+        box2: {
+          title: `✨ Key Features & Benefits`,
+          content: `<ul>
+            <li><strong>Welcome Bonus:</strong> Get ${bonus} as a sign-up bonus when you register</li>
+            <li><strong>Low Withdrawal:</strong> Minimum withdrawal amount is just ${withdrawal}</li>
+            <li><strong>Secure Payments:</strong> Fast and secure payment processing</li>
+            <li><strong>24/7 Support:</strong> Round-the-clock customer support</li>
+            <li><strong>Fair Play:</strong> Certified random number generator for fair gameplay</li>
+            <li><strong>Multiple Games:</strong> Wide variety of skill-based games</li>
+          </ul>`
+        },
+        box3: {
+          title: `📥 How to Download & Install`,
+          content: `Downloading ${name} is simple and straightforward. Follow these easy steps:<br><br>
+            <strong>1.</strong> Click on the download button above<br>
+            <strong>2.</strong> Allow installation from unknown sources in your device settings<br>
+            <strong>3.</strong> Install the APK file once downloaded<br>
+            <strong>4.</strong> Register with your mobile number<br>
+            <strong>5.</strong> Verify your account and start playing<br>
+            <strong>6.</strong> Claim your welcome bonus of ${bonus}`
+        },
+        box4: {
+          title: `🔒 Safety & Security`,
+          content: `Your safety and security are our top priorities. ${name} uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.`
+        },
+        box5: {
+          title: `🏆 Premium Experience`,
+          content: `${name} (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ${withdrawal} withdrawals. The update version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, ${name} stands out as one of the strongest earning apps in the Yono series.`
+        }
+      };
+    }
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -415,6 +434,19 @@
       document.getElementById('detailSize').textContent = '📦 ' + (game.size || '45 MB');
       document.getElementById('detailVotes').textContent = '👍 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
+      
+      // Update 5 info boxes with dynamic content
+      const info = generateGameInfo(game.name, game.bonus, game.withdrawal);
+      document.getElementById('box1Title').textContent = info.box1.title.replace(/^[^\s]+\s/, '');
+      document.getElementById('box1Content').innerHTML = info.box1.content;
+      document.getElementById('box2Title').textContent = info.box2.title.replace(/^[^\s]+\s/, '');
+      document.getElementById('box2Content').innerHTML = info.box2.content;
+      document.getElementById('box3Title').textContent = info.box3.title.replace(/^[^\s]+\s/, '');
+      document.getElementById('box3Content').innerHTML = info.box3.content;
+      document.getElementById('box4Title').textContent = info.box4.title.replace(/^[^\s]+\s/, '');
+      document.getElementById('box4Content').innerHTML = info.box4.content;
+      document.getElementById('box5Title').textContent = info.box5.title.replace(/^[^\s]+\s/, '');
+      document.getElementById('box5Content').innerHTML = info.box5.content;
       
       // Related - all other games
       const relatedGrid = document.getElementById('relatedGrid');
