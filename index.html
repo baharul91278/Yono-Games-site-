@@ -167,7 +167,7 @@
           <div class="game-meta-detail">
             <span class="rating" id="detailRating">⭐ 4.5</span>
             <span class="size" id="detailSize">📦 45 MB</span>
-            <span class="votes" id="detailVotes">👍 12.8K</span>
+            <span class="votes" id="detailVotes">💛 12.8K</span>
             <span class="bonus-badge" id="detailBonus">🎁 ₹45</span>
           </div>
         </div>
@@ -237,7 +237,7 @@
     
     <!-- Other Related -->
     <div class="related-section">
-      <div class="related-title">📌 Other Related Games</div>
+      <div class="related-title">💲 Other Related Games</div>
       <div class="related-grid" id="relatedGrid"></div>
     </div>
   </div>
@@ -389,7 +389,7 @@
         
         const withdrawDiv = document.createElement('div');
         withdrawDiv.className = 'card-withdraw';
-        withdrawDiv.textContent = '💰 Min. Withdraw ' + game.withdrawal;
+        withdrawDiv.textContent = '🏦 Min. Withdraw ' + game.withdrawal;
         
         infoDiv.appendChild(nameDiv);
         infoDiv.appendChild(bonusDiv);
@@ -416,11 +416,11 @@
       document.getElementById('detailName').textContent = game.name;
       document.getElementById('detailTitle').textContent = game.name;
       document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
-      document.getElementById('detailWithdraw').textContent = '💰 Min. Withdraw ' + game.withdrawal;
+      document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
       document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
       document.getElementById('detailRating').textContent = '⭐ ' + (game.rating || '4.5');
       document.getElementById('detailSize').textContent = '📦 ' + (game.size || '45 MB');
-      document.getElementById('detailVotes').textContent = '👍 ' + (game.votes || '12.8K');
+      document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
       // ====== UPDATE ALL 5 BOXES WITH GAME NAME ======
