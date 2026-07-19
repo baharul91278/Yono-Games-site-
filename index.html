@@ -18,79 +18,93 @@
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; }
     
-    /* Top Header: Left logo+name, Right HOME */
-    .top-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
-    .header-left { display: flex; align-items: center; gap: 10px; }
-    .header-left .logo-img { width: 44px; height: 44px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
+    /* Top Header: Left logo+name, Right HOME small */
+    .top-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
+    .header-left { display: flex; align-items: center; gap: 8px; }
+    .header-left .logo-img { width: 38px; height: 38px; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
     .header-left .logo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .header-left .site-name { font-weight: 700; font-size: 0.95rem; color: #0b1e33; line-height: 1.2; }
-    .header-left .site-name small { display: block; font-weight: 400; font-size: 0.6rem; color: #64748b; }
-    .header-right .home-btn { background: #1e293b; color: white; border: none; padding: 6px 14px; border-radius: 40px; font-weight: 600; font-size: 0.7rem; cursor: pointer; text-decoration: none; display: inline-block; }
+    .header-left .site-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; line-height: 1.2; }
+    .header-left .site-name small { display: block; font-weight: 400; font-size: 0.5rem; color: #64748b; }
+    .header-right .home-btn { background: #1e293b; color: white; border: none; padding: 4px 10px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; cursor: pointer; text-decoration: none; display: inline-block; }
     .header-right .home-btn:active { transform: scale(0.95); }
     
+    /* 4 small nav links: HOME | ABOUT | CONTACT | DISCLAIMER */
+    .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #f8fafc; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
+    .nav-small { font-size: 0.55rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; text-decoration: none; transition: 0.15s; white-space: nowrap; }
+    .nav-small:active { transform: scale(0.95); }
+    .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
+    
     /* Back + Game title row */
-    .game-detail-header { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #f8fafc; border-bottom: 1px solid #e9edf4; }
-    .back-btn { background: #eef2ff; border: none; padding: 4px 14px; border-radius: 40px; font-weight: 600; font-size: 0.7rem; color: #1e293b; cursor: pointer; }
+    .game-detail-header { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e9edf4; }
+    .back-btn { background: #eef2ff; border: none; padding: 3px 12px; border-radius: 40px; font-weight: 600; font-size: 0.65rem; color: #1e293b; cursor: pointer; }
     .back-btn:active { transform: scale(0.95); }
-    .game-detail-title { font-weight: 700; font-size: 1rem; color: #0b1e33; }
+    .game-detail-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; }
     
     /* Game Detail Card */
-    .detail-card { background: white; padding: 16px; border-bottom: 1px solid #e9edf4; }
-    .detail-top { display: flex; gap: 14px; }
-    .detail-img { width: 80px; height: 80px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
+    .detail-card { background: white; padding: 14px; border-bottom: 1px solid #e9edf4; }
+    .detail-top { display: flex; gap: 12px; }
+    .detail-img { width: 72px; height: 72px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
     .detail-img img { width: 100%; height: 100%; object-fit: cover; }
     .detail-info { flex: 1; }
-    .detail-info .game-name { font-weight: 700; font-size: 1.1rem; color: #0b1e33; }
-    .detail-info .game-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 4px; font-size: 0.7rem; color: #475569; }
-    .detail-info .game-meta span { background: #f1f5f9; padding: 2px 10px; border-radius: 40px; }
+    .detail-info .game-name { font-weight: 700; font-size: 1rem; color: #0b1e33; }
+    .detail-info .game-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 4px; font-size: 0.65rem; color: #475569; }
+    .detail-info .game-meta span { background: #f1f5f9; padding: 2px 8px; border-radius: 40px; }
     .detail-info .game-meta .rating { background: #fef9c3; color: #854d0e; }
     .detail-info .game-meta .size { background: #dbeafe; color: #1e4a7a; }
     .detail-info .game-meta .votes { background: #fce4ec; color: #9a1f3c; }
     .detail-info .game-meta .bonus-badge { background: #e6f7e6; color: #0b5e2e; }
-    .detail-download { margin-top: 12px; }
-    .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; }
+    .detail-download { margin-top: 10px; }
+    .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 8px 20px; border-radius: 60px; font-weight: 700; font-size: 0.8rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* Tags Section - 4 columns */
-    .tags-section { padding: 14px; background: #f8fafc; }
-    .tags-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .tag-box { background: white; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
-    .tag-box .tag-label { font-size: 0.55rem; text-transform: uppercase; color: #94a3b8; font-weight: 600; letter-spacing: 0.3px; }
-    .tag-box .tag-value { font-size: 0.7rem; color: #0b1e33; font-weight: 500; margin-top: 2px; word-break: break-word; }
+    /* Tags Section */
+    .tags-section { padding: 12px; background: #f8fafc; }
+    .tags-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .tag-box { background: white; border-radius: 10px; padding: 8px 10px; border: 1px solid #e9edf4; }
+    .tag-box .tag-label { font-size: 0.5rem; text-transform: uppercase; color: #94a3b8; font-weight: 600; letter-spacing: 0.2px; }
+    .tag-box .tag-value { font-size: 0.65rem; color: #0b1e33; font-weight: 500; margin-top: 2px; word-break: break-word; }
     
     /* Other Related */
-    .related-section { padding: 14px; background: white; border-top: 1px solid #e9edf4; }
-    .related-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
-    .related-grid { display: flex; flex-direction: column; gap: 8px; }
-    .related-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f8fafc; border-radius: 12px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; }
+    .related-section { padding: 12px; background: white; border-top: 1px solid #e9edf4; }
+    .related-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; }
+    .related-grid { display: flex; flex-direction: column; gap: 6px; }
+    .related-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #f8fafc; border-radius: 10px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; }
     .related-item:active { transform: scale(0.97); }
-    .related-item img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
-    .related-item .rname { font-weight: 600; font-size: 0.8rem; flex: 1; }
-    .related-item .rbonus { font-size: 0.65rem; color: #0b5e2e; background: #e6f7e6; padding: 2px 8px; border-radius: 40px; }
+    .related-item img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+    .related-item .rname { font-weight: 600; font-size: 0.7rem; flex: 1; }
+    .related-item .rbonus { font-size: 0.55rem; color: #0b5e2e; background: #e6f7e6; padding: 1px 8px; border-radius: 40px; }
     
-    .back-home-grid { display: none; }
-    #mainGrid { display: flex; flex-direction: column; gap: 12px; padding: 12px; }
-    .card { background: white; border-radius: 20px; padding: 10px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; transition: 0.1s; }
+    #mainGrid { display: flex; flex-direction: column; gap: 10px; padding: 10px; }
+    .card { background: white; border-radius: 16px; padding: 8px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 8px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; }
     .card:active { transform: scale(0.97); background: #fafcff; }
-    .card-img { width: 56px; height: 56px; border-radius: 14px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; }
+    .card-img { width: 48px; height: 48px; border-radius: 12px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .card-info { flex: 1; }
-    .card-name { font-weight: 700; font-size: 0.9rem; color: #0b1e33; }
-    .card-meta { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 0.6rem; color: #475569; margin-top: 2px; }
-    .card-meta span { background: #f1f5f9; padding: 1px 8px; border-radius: 40px; }
+    .card-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; }
+    .card-meta { display: flex; flex-wrap: wrap; gap: 3px 6px; font-size: 0.55rem; color: #475569; margin-top: 1px; }
+    .card-meta span { background: #f1f5f9; padding: 1px 6px; border-radius: 40px; }
     .card-meta .bonus { background: #e6f7e6; color: #0b5e2e; }
-    .card-download-sm { background: #0a0a0a; color: white; border: none; padding: 4px 12px; border-radius: 60px; font-weight: 600; font-size: 0.55rem; white-space: nowrap; }
-    .footer-note { padding: 16px; text-align: center; color: #94a3b8; font-size: 0.6rem; border-top: 1px solid #e9edf4; }
+    .card-download-sm { background: #0a0a0a; color: white; border: none; padding: 3px 10px; border-radius: 40px; font-weight: 600; font-size: 0.5rem; white-space: nowrap; }
+    .footer-note { padding: 12px; text-align: center; color: #94a3b8; font-size: 0.55rem; border-top: 1px solid #e9edf4; }
+    
+    /* Overlay */
+    .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
+    .info-card { background: white; max-width: 400px; width: 90%; padding: 24px 20px; border-radius: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+    .info-card h2 { font-size: 1.3rem; margin-bottom: 10px; color: #0b1e33; }
+    .info-card p { color: #334155; line-height: 1.6; font-size: 0.85rem; }
+    .info-card .close-btn { background: #eef2ff; border: none; padding: 6px 18px; border-radius: 60px; font-weight: 600; margin-top: 14px; cursor: pointer; color: #1e293b; border: 1px solid #cbd5e1; font-size: 0.8rem; }
+    
     @media (max-width: 420px) {
-      .header-left .site-name { font-size: 0.8rem; }
-      .detail-img { width: 64px; height: 64px; }
+      .header-left .site-name { font-size: 0.7rem; }
+      .nav-small { font-size: 0.45rem; padding: 2px 6px; }
+      .detail-img { width: 60px; height: 60px; }
       .tags-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- Top Header: Logo + Name | HOME -->
+  <!-- Top Header: Logo + Name | HOME small -->
   <div class="top-header">
     <div class="header-left">
       <div class="logo-img"><img src="https://i.ibb.co/CssC2WbG/1000022725.jpg" alt="All Yono Games Site"></div>
@@ -99,6 +113,14 @@
     <div class="header-right">
       <a href="#" class="home-btn" id="homeTopBtn">🏠 HOME</a>
     </div>
+  </div>
+
+  <!-- 4 small nav links: HOME | ABOUT | CONTACT | DISCLAIMER -->
+  <div class="nav-row-small">
+    <span class="nav-small active" id="homeNav">🏠 Home</span>
+    <span class="nav-small" data-target="about">About</span>
+    <span class="nav-small" data-target="contact">Contact</span>
+    <span class="nav-small" data-target="disclaimer">Disclaimer</span>
   </div>
 
   <!-- Main Grid -->
@@ -127,7 +149,7 @@
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download Now</a>
       </div>
     </div>
-    <!-- Tags: 4 columns (700-900 tags combined) -->
+    <!-- Tags -->
     <div class="tags-section">
       <div class="tags-grid" id="tagsGrid">
         <div class="tag-box"><div class="tag-label">Game Info</div><div class="tag-value" id="tag1">Casino, Slots, Rummy</div></div>
@@ -154,9 +176,17 @@
   <div class="footer-note">All Yono Games Site • Premium • 700+ Tags</div>
 </div>
 
+<!-- Overlay -->
+<div class="info-overlay" id="infoOverlay">
+  <div class="info-card">
+    <h2 id="overlayTitle">About</h2>
+    <p id="overlayContent">Content goes here.</p>
+    <button class="close-btn" id="overlayClose">✕ Close</button>
+  </div>
+</div>
+
 <script>
   (function() {
-    // Full games list
     const games = [
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -196,7 +226,6 @@
       { name: "MBM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg" }
     ];
 
-    // Remove duplicates
     const seen = new Set();
     const uniqueGames = games.filter(g => {
       const key = g.name.trim().toLowerCase();
@@ -209,8 +238,46 @@
     const detailView = document.getElementById('detailView');
     const backBtn = document.getElementById('backBtn');
     const homeTopBtn = document.getElementById('homeTopBtn');
+    const homeNav = document.getElementById('homeNav');
 
-    // Render main grid
+    // Overlay
+    const overlay = document.getElementById('infoOverlay');
+    const overlayTitle = document.getElementById('overlayTitle');
+    const overlayContent = document.getElementById('overlayContent');
+    const overlayClose = document.getElementById('overlayClose');
+
+    const contentMap = {
+      about: { title: '📖 About', text: 'All Yono Games Site is a curated platform listing top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app. Our goal is to help users discover trusted gaming platforms with ₹45+ bonuses and ₹100 withdrawals.' },
+      contact: { title: '📬 Contact', text: 'For any queries, feedback or support, you can reach us via email: support@allyonogamessite.com. We aim to respond within 24 hours. You can also connect with us on Telegram: @allyonogames.' },
+      disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono Games Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Gambling may be subject to legal restrictions in your region. Play responsibly.' }
+    };
+
+    // Nav clicks for About/Contact/Disclaimer
+    document.querySelectorAll('.nav-small[data-target]').forEach(el => {
+      el.addEventListener('click', function() {
+        const key = this.dataset.target;
+        if (contentMap[key]) {
+          overlayTitle.textContent = contentMap[key].title;
+          overlayContent.textContent = contentMap[key].text;
+          overlay.style.display = 'flex';
+        }
+        document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Home nav click
+    homeNav.addEventListener('click', function() {
+      detailView.style.display = 'none';
+      mainGrid.style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+
+    overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -255,7 +322,6 @@
     }
     renderGrid();
 
-    // Show detail view
     function showDetail(game) {
       mainGrid.style.display = 'none';
       detailView.style.display = 'block';
@@ -264,7 +330,6 @@
       document.getElementById('detailTitle').textContent = game.name;
       document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
-      // Dynamic tags based on game
       const tags = [
         `🎮 ${game.name} • Casino, Slots, Rummy`,
         `💰 Deposit: ₹100 Min • UPI, Bank, Paytm`,
@@ -291,7 +356,7 @@
       document.getElementById('tag10').textContent = tags[9];
       document.getElementById('tag11').textContent = tags[10];
       document.getElementById('tag12').textContent = tags[11];
-      // Related
+      
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name).slice(0, 6);
@@ -318,7 +383,6 @@
         item.appendChild(nameSpan);
         item.appendChild(bonusSpan);
         relatedGrid.appendChild(item);
-        // Click to open detail
         item.addEventListener('click', function(e) {
           e.preventDefault();
           const gData = { name: this.dataset.name, bonus: this.dataset.bonus, withdrawal: this.dataset.withdrawal, downloadUrl: this.dataset.downloadUrl, img: this.dataset.img };
@@ -328,7 +392,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Card clicks
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -343,7 +406,6 @@
       });
     });
 
-    // Related item clicks (delegated)
     document.getElementById('relatedGrid').addEventListener('click', function(e) {
       const item = e.target.closest('.related-item');
       if (item) {
@@ -359,19 +421,18 @@
       }
     });
 
-    // Back button
-    backBtn.addEventListener('click', function() {
+    function goBack() {
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
+      document.getElementById('homeNav').classList.add('active');
+    }
 
-    // Home button
+    backBtn.addEventListener('click', goBack);
     homeTopBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      detailView.style.display = 'none';
-      mainGrid.style.display = 'flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      goBack();
     });
 
   })();
