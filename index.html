@@ -1,4 +1,4 @@
-000
+00html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +74,7 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* ====== INFO BOXES ====== */
+    /* ====== NEW TAG BOXES (4 separate boxes) ====== */
     .info-boxes { padding: 12px; background: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
     .info-box { background: white; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
     .info-box .box-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -178,21 +178,21 @@
       </div>
     </div>
     
-    <!-- ====== DYNAMIC INFO BOXES (Game-specific) ====== -->
-    <div class="info-boxes" id="infoBoxes">
-      <!-- Box 1: About [Game Name] -->
-      <div class="info-box" id="boxAbout">
-        <div class="box-title"><span class="icon">🚀</span> About <span id="boxGameName1">MBM Bet</span></div>
-        <div class="box-content" id="boxAboutContent">
+    <!-- ====== NEW INFO BOXES (4 boxes) ====== -->
+    <div class="info-boxes">
+      <!-- Box 1: MBM Bet Overview -->
+      <div class="info-box">
+        <div class="box-title"><span class="icon">🚀</span> About MBM Bet</div>
+        <div class="box-content">
           <strong>MBM Bet</strong> is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.<br><br>
           The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.
         </div>
       </div>
       
       <!-- Box 2: Key Features -->
-      <div class="info-box" id="boxFeatures">
+      <div class="info-box">
         <div class="box-title"><span class="icon">✨</span> Key Features & Benefits</div>
-        <div class="box-content" id="boxFeaturesContent">
+        <div class="box-content">
           <ul>
             <li><strong>Welcome Bonus:</strong> Get ₹39 as a sign-up bonus when you register</li>
             <li><strong>Low Withdrawal:</strong> Minimum withdrawal amount is just ₹100</li>
@@ -205,10 +205,10 @@
       </div>
       
       <!-- Box 3: How to Download -->
-      <div class="info-box" id="boxDownload">
+      <div class="info-box">
         <div class="box-title"><span class="icon">📥</span> How to Download & Install</div>
-        <div class="box-content" id="boxDownloadContent">
-          Downloading <span id="boxGameName2">MBM Bet</span> is simple and straightforward. Follow these easy steps:<br><br>
+        <div class="box-content">
+          Downloading MBM Bet is simple and straightforward. Follow these easy steps:<br><br>
           <strong>1.</strong> Click on the download button above<br>
           <strong>2.</strong> Allow installation from unknown sources in your device settings<br>
           <strong>3.</strong> Install the APK file once downloaded<br>
@@ -219,10 +219,10 @@
       </div>
       
       <!-- Box 4: Safety & Security -->
-      <div class="info-box" id="boxSafety">
+      <div class="info-box">
         <div class="box-title"><span class="icon">🔒</span> Safety & Security</div>
-        <div class="box-content" id="boxSafetyContent">
-          Your safety and security are our top priorities. <span id="boxGameName3">MBM Bet</span> uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>
+        <div class="box-content">
+          Your safety and security are our top priorities. MBM Bet uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>
           The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.
         </div>
       </div>
@@ -249,368 +249,44 @@
 
 <script>
   (function() {
-    // ====== ALL GAMES LIST (Each game with unique description) ======
+    // ====== ALL GAMES LIST ======
     const games = [
-      { 
-        name: "All Yono Games Site", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.earntp.com/m/jm9n7r", 
-        img: "https://i.ibb.co/CssC2WbG/1000022725.jpg",
-        about: "All Yono Games Site is a complete gaming platform offering access to all Yono series games including Slots, Rummy, Teen Patti, and Casino games. Get the best bonuses and fastest withdrawals.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Games",
-        howto: "Click download, enable unknown sources, install APK, register, verify, claim bonus."
-      },
-      { 
-        name: "567 Slots", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", 
-        img: "https://i.ibb.co/hFytMXY2/1000022725.jpg",
-        about: "567 Slots is a premium slot gaming app with hundreds of slot machines, jackpot games, and daily bonuses. Experience the thrill of Vegas-style slots with real money rewards.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Slot Games",
-        howto: "Download the APK, enable unknown sources, install, register, start playing slots."
-      },
-      { 
-        name: "Saga Slots", 
-        bonus: "₹40", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", 
-        img: "https://i.ibb.co/20dzhBZf/1000022725.jpg",
-        about: "Saga Slots brings you the best slot machine experience with stunning graphics, huge jackpots, and exciting bonus rounds. Win big with every spin.",
-        features: "Welcome Bonus: ₹40, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Slot Games",
-        howto: "Download, enable unknown sources, install APK, register, and claim your bonus."
-      },
-      { 
-        name: "Jaiho 91", 
-        bonus: "₹50", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", 
-        img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg",
-        about: "Jaiho 91 is a popular casino gaming app offering Teen Patti, Rummy, and Slots. Known for its high payouts and exciting tournaments.",
-        features: "Welcome Bonus: ₹50, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Casino Games",
-        howto: "Download APK, enable unknown sources, install, register, verify, start playing."
-      },
-      { 
-        name: "Rummy Ludo", 
-        bonus: "₹35", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://rummyludoapp37.com/", 
-        img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg",
-        about: "Rummy Ludo combines classic Rummy and Ludo games in one app. Play with friends and win real money in tournaments.",
-        features: "Welcome Bonus: ₹35, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy & Ludo Games",
-        howto: "Download, enable unknown sources, install, register, start playing."
-      },
-      { 
-        name: "ABC Rummy", 
-        bonus: "₹42", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", 
-        img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg",
-        about: "ABC Rummy is a skill-based Rummy platform with fair play and fast withdrawals. Play 13-card Rummy and win real cash.",
-        features: "Welcome Bonus: ₹42, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, claim bonus."
-      },
-      { 
-        name: "Rummy 91", 
-        bonus: "₹38", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk", 
-        img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg",
-        about: "Rummy 91 offers a premium Rummy experience with multiple game variants, exciting tournaments, and huge prize pools.",
-        features: "Welcome Bonus: ₹38, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download, enable unknown sources, install, register, start winning."
-      },
-      { 
-        name: "Love Rummy", 
-        bonus: "₹36", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", 
-        img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg",
-        about: "Love Rummy is a romantic-themed Rummy app with smooth gameplay, beautiful interface, and great bonuses.",
-        features: "Welcome Bonus: ₹36, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, play rummy."
-      },
-      { 
-        name: "Spin Crush", 
-        bonus: "₹30", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", 
-        img: "https://i.ibb.co/S4C26kVS/1000022725.jpg",
-        about: "Spin Crush is a spinning wheel game where you can win real money. Simple, fun, and rewarding.",
-        features: "Welcome Bonus: ₹30, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Spin Games",
-        howto: "Download, enable unknown sources, install, register, spin and win."
-      },
-      { 
-        name: "Top Rummy", 
-        bonus: "₹48", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://th7.my/BY1JWS/3gvute0", 
-        img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg",
-        about: "Top Rummy is a leading Rummy platform with high-stakes tournaments, quick withdrawals, and a secure gaming environment.",
-        features: "Welcome Bonus: ₹48, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, play and win."
-      },
-      { 
-        name: "Hello Rummy", 
-        bonus: "₹34", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://t.me/yonogameswepsate", 
-        img: "https://i.ibb.co/27DSP5zR/1000022725.jpg",
-        about: "Hello Rummy is a friendly Rummy app with a great community, daily bonuses, and fast payouts.",
-        features: "Welcome Bonus: ₹34, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download, enable unknown sources, install, register, join the community."
-      },
-      { 
-        name: "Rummy 365", 
-        bonus: "₹44", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", 
-        img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg",
-        about: "Rummy 365 offers year-round Rummy action with daily tournaments, leaderboards, and huge cash prizes.",
-        features: "Welcome Bonus: ₹44, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, play daily."
-      },
-      { 
-        name: "Teen Patti Gold", 
-        bonus: "₹37", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.earntp.com/gold/jm9n7r", 
-        img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg",
-        about: "Teen Patti Gold is the ultimate Teen Patti experience with live tables, real players, and exciting bonus offers.",
-        features: "Welcome Bonus: ₹37, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Teen Patti",
-        howto: "Download, enable unknown sources, install, register, play Teen Patti."
-      },
-      { 
-        name: "Teen Patti Master", 
-        bonus: "₹20", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.earntp.com/m/jm9n7r", 
-        img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg",
-        about: "Teen Patti Master is a professional Teen Patti platform with high-stakes games, private tables, and quick withdrawals.",
-        features: "Welcome Bonus: ₹20, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Teen Patti",
-        howto: "Download APK, enable unknown sources, install, register, become a master."
-      },
-      { 
-        name: "Yono Rummy", 
-        bonus: "₹25", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", 
-        img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg",
-        about: "Yono Rummy is a trusted Rummy app from the Yono series with fast gameplay, secure transactions, and daily bonuses.",
-        features: "Welcome Bonus: ₹25, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download, enable unknown sources, install, register, play and win."
-      },
-      { 
-        name: "Slots Winner", 
-        bonus: "₹40", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393", 
-        img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg",
-        about: "Slots Winner is a top-rated slot app with thousands of slot machines, progressive jackpots, and daily free spins.",
-        features: "Welcome Bonus: ₹40, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download APK, enable unknown sources, install, register, spin to win."
-      },
-      { 
-        name: "Good Slots", 
-        bonus: "₹15", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1", 
-        img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg",
-        about: "Good Slots offers a great selection of slot games with high RTP, generous bonuses, and a user-friendly interface.",
-        features: "Welcome Bonus: ₹15, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download, enable unknown sources, install, register, start playing."
-      },
-      { 
-        name: "Diwa Slot", 
-        bonus: "₹50", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app", 
-        img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg",
-        about: "Diwa Slot is a premium slot app with exclusive themes, daily bonuses, and massive jackpot opportunities.",
-        features: "Welcome Bonus: ₹50, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download APK, enable unknown sources, install, register, play and win big."
-      },
-      { 
-        name: "GoGo Rummy", 
-        bonus: "₹28", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694", 
-        img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg",
-        about: "GoGo Rummy is a fast-paced Rummy app with quick matches, instant withdrawals, and a competitive community.",
-        features: "Welcome Bonus: ₹28, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download, enable unknown sources, install, register, go go!"
-      },
-      { 
-        name: "Joy Rummy", 
-        bonus: "₹35", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100", 
-        img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg",
-        about: "Joy Rummy brings joy to your Rummy experience with smooth gameplay, great bonuses, and a friendly community.",
-        features: "Welcome Bonus: ₹35, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, enjoy the joy."
-      },
-      { 
-        name: "Spin Gold", 
-        bonus: "₹22", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", 
-        img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg",
-        about: "Spin Gold is a spinning wheel game where you can win gold and real cash. Simple, addictive, and rewarding.",
-        features: "Welcome Bonus: ₹22, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Spin Games",
-        howto: "Download, enable unknown sources, install, register, spin for gold."
-      },
-      { 
-        name: "Bingo 101", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", 
-        img: "https://i.ibb.co/My9tjNgL/bingo101.jpg",
-        about: "Bingo 101 is a classic Bingo game with modern features, multiple rooms, and exciting prize pools.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Bingo Games",
-        howto: "Download APK, enable unknown sources, install, register, play Bingo."
-      },
-      { 
-        name: "Yes Spin", 
-        bonus: "₹18", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", 
-        img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg",
-        about: "Yes Spin is a simple spinning game where you can win real money with just a tap. Quick rewards and instant withdrawals.",
-        features: "Welcome Bonus: ₹18, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Spin Games",
-        howto: "Download, enable unknown sources, install, register, spin and say yes!"
-      },
-      { 
-        name: "Yono Arcade", 
-        bonus: "₹32", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", 
-        img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg",
-        about: "Yono Arcade is an all-in-one gaming platform with multiple arcade games, daily bonuses, and huge prizes.",
-        features: "Welcome Bonus: ₹32, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Arcade Games",
-        howto: "Download APK, enable unknown sources, install, register, play arcade."
-      },
-      { 
-        name: "SVIP 777", 
-        bonus: "₹27", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5", 
-        img: "https://i.ibb.co/vfWZMLm/svip777.jpg",
-        about: "SVIP 777 is a premium casino app offering slots, table games, and exclusive VIP rewards for high rollers.",
-        features: "Welcome Bonus: ₹27, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Casino Games",
-        howto: "Download, enable unknown sources, install, register, become VIP."
-      },
-      { 
-        name: "OK Rummy", 
-        bonus: "₹38", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", 
-        img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg",
-        about: "OK Rummy is a trusted Rummy platform with fast gameplay, secure payments, and great bonuses.",
-        features: "Welcome Bonus: ₹38, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, play OK Rummy."
-      },
-      { 
-        name: "Hind 777", 
-        bonus: "₹42", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", 
-        img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg",
-        about: "Hind 777 is a popular slot game with Indian themes, exciting features, and huge jackpot prizes.",
-        features: "Welcome Bonus: ₹42, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download, enable unknown sources, install, register, spin and win."
-      },
-      { 
-        name: "Bet 213", 
-        bonus: "₹36", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", 
-        img: "https://i.ibb.co/YTqq2C4F/bet213.jpg",
-        about: "Bet 213 is a comprehensive betting platform offering sports betting, casino games, and live dealers.",
-        features: "Welcome Bonus: ₹36, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Betting",
-        howto: "Download APK, enable unknown sources, install, register, place your bets."
-      },
-      { 
-        name: "Boss Rummy", 
-        bonus: "₹40", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", 
-        img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg",
-        about: "Boss Rummy is a premium Rummy platform with high-stakes games, pro tournaments, and elite community.",
-        features: "Welcome Bonus: ₹40, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download APK, enable unknown sources, install, register, become a Boss."
-      },
-      { 
-        name: "Yono 777", 
-        bonus: "₹35", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", 
-        img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg",
-        about: "Yono 777 is a slot game from the Yono series with 777-themed slots and huge winning potential.",
-        features: "Welcome Bonus: ₹35, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download, enable unknown sources, install, register, play Yono 777."
-      },
-      { 
-        name: "Diwa VIP", 
-        bonus: "₹60", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", 
-        img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg",
-        about: "Diwa VIP is the ultimate VIP gaming experience with exclusive tables, higher limits, and premium rewards.",
-        features: "Welcome Bonus: ₹60, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, VIP Games",
-        howto: "Download APK, enable unknown sources, install, register, enjoy VIP treatment."
-      },
-      { 
-        name: "Diwa 777", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", 
-        img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg",
-        about: "Diwa 777 is a lucky-themed slot game with 777 winning combinations and massive jackpots.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download, enable unknown sources, install, register, spin for 777."
-      },
-      { 
-        name: "Yono Games", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", 
-        img: "https://i.ibb.co/LXqV77rd/yono-games.jpg",
-        about: "Yono Games is the flagship app of the Yono series with all games including Slots, Rummy, Teen Patti, and more.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, All Games",
-        howto: "Download APK, enable unknown sources, install, register, play all Yono games."
-      },
-      { 
-        name: "INR Rummy", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", 
-        img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg",
-        about: "INR Rummy is a Rummy app focused on Indian players with INR currency support, fast games, and great bonuses.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Rummy Games",
-        howto: "Download, enable unknown sources, install, register, play in INR."
-      },
-      { 
-        name: "Slots Winner Pro", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1784299271", 
-        img: "https://i.ibb.co/wNYf5LG8/slots-winner.jpg",
-        about: "Slots Winner Pro is the professional version of Slots Winner with more games, bigger jackpots, and better rewards.",
-        features: "Welcome Bonus: ₹45, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Slot Games",
-        howto: "Download APK, enable unknown sources, install, register, win like a pro."
-      },
-      { 
-        name: "MBM BET", 
-        bonus: "₹45", 
-        withdrawal: "₹100", 
-        downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", 
-        img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg",
-        about: "MBM BET is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
-        features: "Welcome Bonus: ₹39, Low Withdrawal: ₹100, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Games",
-        howto: "Click download, enable unknown sources, install APK, register, verify, claim your bonus."
-      }
+      { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
+      { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
+      { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg" },
+      { name: "Jaiho 91", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg" },
+      { name: "Rummy Ludo", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://rummyludoapp37.com/", img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg" },
+      { name: "ABC Rummy", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg" },
+      { name: "Rummy 91", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk", img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg" },
+      { name: "Love Rummy", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg" },
+      { name: "Spin Crush", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg" },
+      { name: "Top Rummy", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg" },
+      { name: "Hello Rummy", bonus: "₹34", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/27DSP5zR/1000022725.jpg" },
+      { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg" },
+      { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" },
+      { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" },
+      { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" },
+      { name: "Slots Winner", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393", img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg" },
+      { name: "Good Slots", bonus: "₹15", withdrawal: "₹100", downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1", img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg" },
+      { name: "Diwa Slot", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app", img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" },
+      { name: "GoGo Rummy", bonus: "₹28", withdrawal: "₹100", downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694", img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" },
+      { name: "Joy Rummy", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100", img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg" },
+      { name: "Spin Gold", bonus: "₹22", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg" },
+      { name: "Bingo 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg" },
+      { name: "Yes Spin", bonus: "₹18", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg" },
+      { name: "Yono Arcade", bonus: "₹32", withdrawal: "₹100", downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg" },
+      { name: "SVIP 777", bonus: "₹27", withdrawal: "₹100", downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5", img: "https://i.ibb.co/vfWZMLm/svip777.jpg" },
+      { name: "OK Rummy", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg" },
+      { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg" },
+      { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg" },
+      { name: "Boss Rummy", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg" },
+      { name: "Yono 777", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg" },
+      { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg" },
+      { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg" },
+      { name: "Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", img: "https://i.ibb.co/LXqV77rd/yono-games.jpg" },
+      { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg" },
+      { name: "Slots Winner Pro", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1784299271", img: "https://i.ibb.co/wNYf5LG8/slots-winner.jpg" },
+      { name: "MBM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg" }
     ];
 
     const seen = new Set();
@@ -683,9 +359,6 @@
         card.dataset.rating = getRandomRating();
         card.dataset.size = getRandomSize();
         card.dataset.votes = getRandomVotes();
-        card.dataset.about = game.about || '';
-        card.dataset.features = game.features || '';
-        card.dataset.howto = game.howto || '';
 
         const imgDiv = document.createElement('div');
         imgDiv.className = 'card-img';
@@ -743,37 +416,6 @@
       document.getElementById('detailVotes').textContent = '👍 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
-      // Update dynamic boxes with game-specific content
-      const gameName = game.name;
-      document.getElementById('boxGameName1').textContent = gameName;
-      document.getElementById('boxGameName2').textContent = gameName;
-      document.getElementById('boxGameName3').textContent = gameName;
-      
-      // About box - use game-specific about or default
-      const aboutText = game.about || `${gameName} is a popular gaming app offering exciting opportunities to earn real money. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players.`;
-      document.getElementById('boxAboutContent').innerHTML = aboutText.replace(/\n/g, '<br>');
-      
-      // Features box - use game-specific features or default
-      const featuresText = game.features || 'Welcome Bonus, Low Withdrawal, Secure Payments, 24/7 Support, Fair Play Certified, Multiple Games';
-      const featuresList = featuresText.split(',').map(f => f.trim());
-      let featuresHtml = '<ul>';
-      featuresList.forEach(f => {
-        if (f) featuresHtml += `<li><strong>${f.split(':')[0] || f}:</strong> ${f.split(':')[1] || ''}</li>`;
-      });
-      featuresHtml += '</ul>';
-      document.getElementById('boxFeaturesContent').innerHTML = featuresHtml;
-      
-      // How to Download box
-      const howtoText = game.howto || `Download ${gameName}, enable unknown sources, install APK, register, verify, claim bonus.`;
-      document.getElementById('boxDownloadContent').innerHTML = 
-        `Downloading <strong>${gameName}</strong> is simple and straightforward. Follow these easy steps:<br><br>` +
-        howtoText.split(',').map((step, i) => `<strong>${i+1}.</strong> ${step.trim()}<br>`).join('');
-      
-      // Safety box - keep generic but with game name
-      document.getElementById('boxSafetyContent').innerHTML = 
-        `Your safety and security are our top priorities. <strong>${gameName}</strong> uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>` +
-        `The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.`;
-      
       // Related - all other games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
@@ -789,9 +431,6 @@
         item.dataset.rating = getRandomRating();
         item.dataset.size = getRandomSize();
         item.dataset.votes = getRandomVotes();
-        item.dataset.about = g.about || '';
-        item.dataset.features = g.features || '';
-        item.dataset.howto = g.howto || '';
         
         const img = document.createElement('img');
         img.src = g.img;
@@ -832,10 +471,7 @@
             img: this.dataset.img,
             rating: this.dataset.rating,
             size: this.dataset.size,
-            votes: this.dataset.votes,
-            about: this.dataset.about,
-            features: this.dataset.features,
-            howto: this.dataset.howto
+            votes: this.dataset.votes
           };
           showDetail(gData);
         });
@@ -854,10 +490,7 @@
           img: this.dataset.img,
           rating: this.dataset.rating,
           size: this.dataset.size,
-          votes: this.dataset.votes,
-          about: this.dataset.about,
-          features: this.dataset.features,
-          howto: this.dataset.howto
+          votes: this.dataset.votes
         };
         showDetail(gData);
       });
