@@ -75,7 +75,7 @@
     .nav-small:active { transform: scale(0.95); }
     .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
     
-    /* ====== BACK + GAME NAME (Right Side) ====== */
+    /* ====== BACK + GAME NAME (Right Side) - WHITE TEXT ====== */
     .game-detail-header { 
       display: flex; 
       justify-content: space-between; 
@@ -98,12 +98,13 @@
     .game-detail-title { 
       font-weight: 700; 
       font-size: 0.75rem; 
-      color: #ffffff; 
+      color: #ffffff !important; 
       background: #1e293b; 
       padding: 4px 14px; 
       border-radius: 40px; 
       cursor: pointer;
       white-space: nowrap;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     .game-detail-title:active { transform: scale(0.95); }
     
@@ -179,7 +180,7 @@
       .info-box .box-content { font-size: 0.7rem; }
       .marquee-container marquee { font-size: 0.6rem; }
       .marquee-container marquee span { margin: 0 15px; }
-      .game-detail-title { font-size: 0.6rem; padding: 3px 10px; }
+      .game-detail-title { font-size: 0.55rem; padding: 3px 10px; }
     }
   </style>
 </head>
@@ -251,7 +252,7 @@
   <div id="detailView" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
-      <span class="game-detail-title" id="detailTitle">Download APK • ₹45 Bonus</span>
+      <span class="game-detail-title" id="detailTitle">Download Game APK • Welcome ₹45 Bonus</span>
     </div>
     <div class="detail-card">
       <div class="detail-top">
@@ -507,7 +508,7 @@
       detailView.style.display = 'block';
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').textContent = game.name;
-      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • ₹45 Bonus';
+      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ₹45 Bonus';
       document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
       document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
       document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
