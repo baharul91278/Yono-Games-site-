@@ -1,3 +1,4 @@
+000
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -446,6 +447,7 @@
       disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono Games Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Gambling may be subject to legal restrictions in your region. Play responsibly.' }
     };
 
+    // ====== NAV LINKS - About, Contact, Disclaimer ======
     document.querySelectorAll('.nav-small[data-target]').forEach(el => {
       el.addEventListener('click', function() {
         const key = this.dataset.target;
@@ -459,15 +461,15 @@
       });
     });
 
+    // ====== HOME NAV ======
     homeNav.addEventListener('click', function() {
-      // Reset history stack and go home
+      // Clear history and go to main grid
       historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
-      history.pushState(null, null, location.href);
     });
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
@@ -480,7 +482,7 @@
       return num + 'K';
     }
 
-    // ====== HISTORY STACK ======
+    // ====== HISTORY STACK - supports unlimited back navigation ======
     let historyStack = [];
 
     // ====== TOC TOGGLE ======
@@ -491,6 +493,7 @@
       arrow.classList.toggle('open');
     });
 
+    // ====== RENDER MAIN GRID ======
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -573,10 +576,9 @@
       };
     }
 
-    // ====== SHOW DETAIL WITH HISTORY MANAGEMENT ======
+    // ====== SHOW DETAIL - PUSH TO HISTORY STACK ======
     function showDetail(game, pushHistory = true) {
       if (pushHistory) {
-        // Push the current game data onto the history stack before showing the new one
         historyStack.push(game);
       }
 
@@ -653,7 +655,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // Populate game tags
+      // Populate game tags (clickable for unlimited back navigation)
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -680,12 +682,12 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true);
+          showDetail(gData, true); // Push to history
         });
         tagsContainer.appendChild(tag);
       });
       
-      // Related games
+      // Related games (clickable for unlimited back navigation)
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -742,13 +744,13 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true);
+          showDetail(gData, true); // Push to history
         });
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Main grid clicks
+    // ====== MAIN GRID CARD CLICKS ======
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -762,11 +764,11 @@
           size: this.dataset.size,
           votes: this.dataset.votes
         };
-        showDetail(gData, true);
+        showDetail(gData, true); // Push to history
       });
     });
 
-    // Click on detail title to download
+    // ====== DOWNLOAD TITLE CLICK ======
     document.getElementById('detailTitle').addEventListener('click', function() {
       const url = document.getElementById('detailDownloadBtn').href;
       if (url && url !== '#') {
@@ -774,12 +776,17 @@
       }
     });
 
-    // ====== GO BACK FUNCTION ======
+    // ====== GO BACK - UNLIMITED BACK NAVIGATION ======
     function goBack() {
+      // Check if overlay is open first
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        return;
+      }
+
       if (historyStack.length > 1) {
-        // Pop the current (top) item
+        // Pop the current item and show the previous one
         historyStack.pop();
-        // Now get the previous item
         const prevGame = historyStack[historyStack.length - 1];
         if (prevGame) {
           showDetail(prevGame, false);
@@ -787,28 +794,31 @@
           goHome();
         }
       } else if (historyStack.length === 1) {
-        // Only one item in stack, go to main grid
         historyStack.pop();
         goHome();
       } else {
-        // Stack empty, go home
         goHome();
       }
     }
 
     function goHome() {
+      historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       document.getElementById('homeNav').classList.add('active');
-      history.pushState(null, null, location.href);
     }
 
+    // ====== BACK BUTTON ======
     backBtn.addEventListener('click', goBack);
 
-    // Handle browser back/forward
+    // ====== BROWSER BACK BUTTON ======
     window.addEventListener('popstate', function(e) {
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        return;
+      }
       if (detailView.style.display === 'block') {
         goBack();
       } else {
@@ -816,10 +826,10 @@
       }
     });
 
-    // Initial push state to prevent exit
+    // ====== INITIAL PUSH STATE TO PREVENT EXIT ======
     history.pushState(null, null, location.href);
 
-    // Share button
+    // ====== SHARE BUTTON ======
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
@@ -840,4 +850,4 @@
   })();
 </script>
 </body>
-</html
+</html>
