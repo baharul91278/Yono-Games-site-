@@ -100,13 +100,39 @@
     .faq-box .faq-q { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 4px; }
     .faq-box .faq-a { font-size: 0.7rem; color: #334155; line-height: 1.6; }
     
+    /* ====== MOVING LED STAR REVIEWS ====== */
     .review-section { padding: 12px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .review-section .review-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
     .review-grid { display: flex; flex-direction: column; gap: 6px; }
     .review-item { background: white; border-radius: 10px; padding: 10px 14px; border: 1px solid #e9edf4; }
     .review-item .rname { font-weight: 700; font-size: 0.75rem; color: #0b1e33; }
     .review-item .rtext { font-size: 0.7rem; color: #475569; line-height: 1.5; margin-top: 2px; }
-    .review-item .rstar { color: #facc15; font-size: 0.7rem; }
+    .review-item .rstar { 
+      display: inline-flex; 
+      gap: 2px; 
+      font-size: 0.7rem;
+      background: linear-gradient(90deg, #facc15, #f59e0b, #facc15, #f59e0b);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: starMove 2s linear infinite;
+      font-weight: 700;
+    }
+    @keyframes starMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .review-item .rstar .star-icon { 
+      display: inline-block; 
+      -webkit-text-fill-color: initial;
+      color: #facc15;
+      text-shadow: 0 0 8px rgba(250, 204, 21, 0.6);
+      animation: starGlow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes starGlow {
+      0% { text-shadow: 0 0 4px rgba(250, 204, 21, 0.3); }
+      100% { text-shadow: 0 0 16px rgba(250, 204, 21, 0.9), 0 0 24px rgba(250, 204, 21, 0.5); }
+    }
     
     .info-tags-section { padding: 12px; background: white; border-top: 1px solid #e9edf4; }
     .info-tags-section .info-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
@@ -240,15 +266,15 @@
       </div>
     </div>
     
-    <!-- ====== 5 OFFER TAGS with UNIQUE BONUS NUMBERS ====== -->
+    <!-- ====== 5 OFFER TAGS with UNIQUE BONUS 20-900 & REFERRAL 5-25 ====== -->
     <div class="tag-section">
       <div class="tag-title" id="tagSectionTitle">📢 Top Offers</div>
       <div class="tag-grid" id="tagGridContainer">
-        <div class="tag-box"><div class="tag-head"><span class="ticon">🏆</span> <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!</div><div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today!</div></div>
-        <div class="tag-box"><div class="tag-head"><span class="ticon">💰</span> Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!</div><div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now!</div></div>
-        <div class="tag-box"><div class="tag-head"><span class="ticon">🎁</span> <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus</div><div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily!</div></div>
-        <div class="tag-box"><div class="tag-head"><span class="ticon">🎰</span> Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download</div><div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today!</div></div>
-        <div class="tag-box"><div class="tag-head"><span class="ticon">🇮🇳</span> Dive into <span id="tag5Title">Game Name</span> – India’s Top Online Gaming App</div><div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now!</div></div>
+        <div class="tag-box"><div class="tag-head"><span class="ticon">🏆</span> <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!</div><div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today! Referral Bonus: ₹<span id="tag1Ref">10</span></div></div>
+        <div class="tag-box"><div class="tag-head"><span class="ticon">💰</span> Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!</div><div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now! Referral Bonus: ₹<span id="tag2Ref">15</span></div></div>
+        <div class="tag-box"><div class="tag-head"><span class="ticon">🎁</span> <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus</div><div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily! Referral Bonus: ₹<span id="tag3Ref">8</span></div></div>
+        <div class="tag-box"><div class="tag-head"><span class="ticon">🎰</span> Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download</div><div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today! Referral Bonus: ₹<span id="tag4Ref">20</span></div></div>
+        <div class="tag-box"><div class="tag-head"><span class="ticon">🇮🇳</span> Dive into <span id="tag5Title">Game Name</span> – India’s Top Online Gaming App</div><div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now! Referral Bonus: ₹<span id="tag5Ref">12</span></div></div>
       </div>
     </div>
     
@@ -256,24 +282,24 @@
     <div class="faq-section">
       <div class="faq-title">❓ Frequently Asked Questions</div>
       <div class="faq-grid">
-        <div class="faq-box"><div class="faq-q">1. What Is The <span id="faq1Name">Game Name</span> app APK?</div><div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100.</div></div>
-        <div class="faq-box"><div class="faq-q">2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?</div><div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>.</div></div>
+        <div class="faq-box"><div class="faq-q">1. What Is The <span id="faq1Name">Game Name</span> app APK?</div><div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100. Referral Bonus: ₹<span id="faq1Ref">25</span></div></div>
+        <div class="faq-box"><div class="faq-q">2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?</div><div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div></div>
         <div class="faq-box"><div class="faq-q">3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?</div><div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div></div>
-        <div class="faq-box"><div class="faq-q">4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?</div><div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>.</div></div>
+        <div class="faq-box"><div class="faq-q">4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?</div><div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div></div>
       </div>
     </div>
     
-    <!-- ====== PUBLIC REVIEW TAGS ====== -->
+    <!-- ====== PUBLIC REVIEWS with MOVING LED STARS ====== -->
     <div class="review-section">
       <div class="review-title">⭐ Public Reviews for <span id="reviewGameName">Game Name</span></div>
       <div class="review-grid" id="reviewGrid">
-        <div class="review-item"><div class="rname">Rajesh K. <span class="rstar">★★★★★</span></div><div class="rtext">"Best gaming app! I earned ₹5000 in just 3 days. Withdrawals are super fast via UPI. Highly recommended!"</div></div>
-        <div class="review-item"><div class="rname">Priya M. <span class="rstar">★★★★☆</span></div><div class="rtext">"Great game selection and smooth interface. The ₹150 bonus was instantly credited. Love the daily rewards!"</div></div>
-        <div class="review-item"><div class="rname">Amit S. <span class="rstar">★★★★★</span></div><div class="rtext">"Trusted app with secure payments. I've referred 10 friends and got ₹1500 bonus. Absolutely loving it!"</div></div>
-        <div class="review-item"><div class="rname">Sneha R. <span class="rstar">★★★★☆</span></div><div class="rtext">"Amazing Rummy games and quick withdrawals. The ₹700 welcome bonus is a great start for new players."</div></div>
-        <div class="review-item"><div class="rname">Vikram J. <span class="rstar">★★★★★</span></div><div class="rtext">"Best app for Teen Patti lovers! Real cash games with fair play. Withdrew ₹2000 within an hour. Fantastic!"</div></div>
-        <div class="review-item"><div class="rname">Ananya P. <span class="rstar">★★★★☆</span></div><div class="rtext">"User-friendly app with awesome bonuses. The ₹51 free bonus helped me start without any deposit. Love it!"</div></div>
-        <div class="review-item"><div class="rname">Deepak T. <span class="rstar">★★★★★</span></div><div class="rtext">"One of the best gaming platforms in India. Secure, fast, and tons of games. The ₹150 referral bonus is amazing!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Rajesh K.</div><div class="rtext">"Best gaming app! I earned ₹<span id="rev1">5000</span> in just 3 days. Withdrawals are super fast via UPI. Highly recommended!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Priya M.</div><div class="rtext">"Great game selection and smooth interface. The ₹<span id="rev2">150</span> bonus was instantly credited. Love the daily rewards!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Amit S.</div><div class="rtext">"Trusted app with secure payments. I've referred 10 friends and got ₹<span id="rev3">1500</span> bonus. Absolutely loving it!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Sneha R.</div><div class="rtext">"Amazing Rummy games and quick withdrawals. The ₹<span id="rev4">700</span> welcome bonus is a great start for new players."</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Vikram J.</div><div class="rtext">"Best app for Teen Patti lovers! Real cash games with fair play. Withdrew ₹<span id="rev5">2000</span> within an hour. Fantastic!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Ananya P.</div><div class="rtext">"User-friendly app with awesome bonuses. The ₹<span id="rev6">51</span> free bonus helped me start without any deposit. Love it!"</div></div>
+        <div class="review-item"><div class="rname"><span class="rstar"><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span><span class="star-icon">⭐</span></span> Deepak T.</div><div class="rtext">"One of the best gaming platforms in India. Secure, fast, and tons of games. The ₹<span id="rev7">150</span> referral bonus is amazing!"</div></div>
       </div>
     </div>
     
@@ -464,22 +490,37 @@
     }
     renderGrid();
 
-    // ====== GENERATE UNIQUE BONUS NUMBERS FOR EACH GAME ======
+    // ====== GENERATE UNIQUE BONUS 20-900 & REFERRAL 5-25 ======
     function getUniqueBonuses(gameName) {
-      const seed = gameName.length;
+      const seed = gameName.length * 7 + gameName.charCodeAt(0) || 10;
       return {
-        tag1: (150 + seed * 3) % 200,
-        tag2: (500 + seed * 7) % 600,
-        tag3: (35 + seed * 2) % 50,
-        tag3b: (150 + seed * 4) % 200,
-        tag4: (50 + seed * 5) % 100,
-        tag5: (51 + seed * 6) % 100,
-        faq1: (700 + seed * 11) % 900,
-        faq2: (500 + seed * 9) % 600,
-        faq4: (51 + seed * 3) % 100,
-        faq4b: (150 + seed * 7) % 200,
-        faq4w: (500 + seed * 8) % 600,
-        faq4d: (100 + seed * 2) % 150
+        tag1: 20 + (seed * 3) % 880,
+        tag2: 20 + (seed * 7) % 880,
+        tag3: 20 + (seed * 2) % 880,
+        tag3b: 20 + (seed * 4) % 880,
+        tag4: 20 + (seed * 5) % 880,
+        tag5: 20 + (seed * 6) % 880,
+        faq1: 20 + (seed * 11) % 880,
+        faq2: 20 + (seed * 9) % 880,
+        faq4: 20 + (seed * 3) % 880,
+        faq4b: 20 + (seed * 7) % 880,
+        faq4w: 20 + (seed * 8) % 880,
+        faq4d: 20 + (seed * 2) % 880,
+        ref1: 5 + (seed * 2) % 20,
+        ref2: 5 + (seed * 3) % 20,
+        ref3: 5 + (seed * 4) % 20,
+        ref4: 5 + (seed * 5) % 20,
+        ref5: 5 + (seed * 6) % 20,
+        refFaq1: 5 + (seed * 7) % 20,
+        refFaq2: 5 + (seed * 8) % 20,
+        refFaq4: 5 + (seed * 9) % 20,
+        rev1: 500 + (seed * 13) % 9500,
+        rev2: 50 + (seed * 5) % 450,
+        rev3: 500 + (seed * 11) % 4500,
+        rev4: 200 + (seed * 7) % 800,
+        rev5: 500 + (seed * 17) % 4500,
+        rev6: 20 + (seed * 3) % 80,
+        rev7: 50 + (seed * 7) % 450
       };
     }
 
@@ -500,38 +541,53 @@
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
       const gName = game.name;
-      const bonuses = getUniqueBonuses(gName);
+      const b = getUniqueBonuses(gName);
       
       document.getElementById('tagSectionTitle').textContent = '📢 ' + gName + ' – Top Offers';
       document.getElementById('tag1Title').textContent = gName;
-      document.getElementById('tag1Bonus').textContent = bonuses.tag1;
+      document.getElementById('tag1Bonus').textContent = b.tag1;
+      document.getElementById('tag1Ref').textContent = b.ref1;
       document.getElementById('tag2Title').textContent = gName;
-      document.getElementById('tag2Bonus').textContent = bonuses.tag2;
+      document.getElementById('tag2Bonus').textContent = b.tag2;
+      document.getElementById('tag2Ref').textContent = b.ref2;
       document.getElementById('tag3Title').textContent = gName;
-      document.getElementById('tag3Bonus').textContent = bonuses.tag3;
-      document.getElementById('tag3Bonus2').textContent = bonuses.tag3b;
+      document.getElementById('tag3Bonus').textContent = b.tag3;
+      document.getElementById('tag3Bonus2').textContent = b.tag3b;
+      document.getElementById('tag3Ref').textContent = b.ref3;
       document.getElementById('tag4Title').textContent = gName;
-      document.getElementById('tag4Bonus').textContent = bonuses.tag4;
+      document.getElementById('tag4Bonus').textContent = b.tag4;
+      document.getElementById('tag4Ref').textContent = b.ref4;
       document.getElementById('tag5Title').textContent = gName;
-      document.getElementById('tag5Bonus').textContent = bonuses.tag5;
+      document.getElementById('tag5Bonus').textContent = b.tag5;
+      document.getElementById('tag5Ref').textContent = b.ref5;
       
       document.getElementById('faq1Name').textContent = gName;
       document.getElementById('faq1Name2').textContent = gName;
       document.getElementById('faq1Name3').textContent = gName;
-      document.getElementById('faq1Bonus').textContent = bonuses.faq1;
+      document.getElementById('faq1Bonus').textContent = b.faq1;
+      document.getElementById('faq1Ref').textContent = b.refFaq1;
       document.getElementById('faq2Name').textContent = gName;
       document.getElementById('faq2Name2').textContent = gName;
       document.getElementById('faq2Name3').textContent = gName;
-      document.getElementById('faq2Bonus').textContent = bonuses.faq2;
+      document.getElementById('faq2Bonus').textContent = b.faq2;
+      document.getElementById('faq2Ref').textContent = b.refFaq2;
       document.getElementById('faq3Name').textContent = gName;
       document.getElementById('faq3Name2').textContent = gName;
       document.getElementById('faq4Name').textContent = gName;
-      document.getElementById('faq4Bonus').textContent = bonuses.faq4;
-      document.getElementById('faq4Bonus2').textContent = bonuses.faq4b;
-      document.getElementById('faq4Withdraw').textContent = bonuses.faq4w;
-      document.getElementById('faq4Deposit').textContent = bonuses.faq4d;
+      document.getElementById('faq4Bonus').textContent = b.faq4;
+      document.getElementById('faq4Bonus2').textContent = b.faq4b;
+      document.getElementById('faq4Withdraw').textContent = b.faq4w;
+      document.getElementById('faq4Deposit').textContent = b.faq4d;
+      document.getElementById('faq4Ref').textContent = b.refFaq4;
       
       document.getElementById('reviewGameName').textContent = gName;
+      document.getElementById('rev1').textContent = b.rev1;
+      document.getElementById('rev2').textContent = b.rev2;
+      document.getElementById('rev3').textContent = b.rev3;
+      document.getElementById('rev4').textContent = b.rev4;
+      document.getElementById('rev5').textContent = b.rev5;
+      document.getElementById('rev6').textContent = b.rev6;
+      document.getElementById('rev7').textContent = b.rev7;
       
       const tagsGrid = document.getElementById('infoTagsGrid');
       tagsGrid.innerHTML = '';
