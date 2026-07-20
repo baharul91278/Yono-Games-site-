@@ -1,5 +1,3 @@
-00000000
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,15 +445,13 @@
       disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono Games Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Gambling may be subject to legal restrictions in your region. Play responsibly.' }
     };
 
-    // ====== NAV SMALL CLICKS (About, Contact, Disclaimer) ======
     document.querySelectorAll('.nav-small[data-target]').forEach(el => {
       el.addEventListener('click', function() {
         const key = this.dataset.target;
         if (contentMap[key]) {
           overlayTitle.textContent = contentMap[key].title;
-          overlayContent.innerHTML = `<p>${contentMap[key].text}</p>`;
+          overlayContent.textContent = contentMap[key].text;
           overlay.style.display = 'flex';
-          // Push state for overlay
           history.pushState({ modal: true }, '');
         }
         document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
@@ -463,41 +459,32 @@
       });
     });
 
-    // ====== HOME NAV ======
     homeNav.addEventListener('click', function() {
       // Close overlay if open
       if (overlay.style.display === 'flex') {
         overlay.style.display = 'none';
         history.replaceState({ page: 'main' }, '', window.location.pathname);
       }
-      // Reset detail stack and go to main grid
       historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
-      // Ensure we have a valid state
-      history.pushState(null, null, location.href);
     });
 
-    // ====== OVERLAY CLOSE (✕ Close) ======
     overlayClose.addEventListener('click', function() {
-      // Close overlay and go back one step
-      if (overlay.style.display === 'flex') {
-        // Use history.back() to trigger popstate
-        history.back();
-      }
+      overlay.style.display = 'none';
+      history.replaceState({ page: 'main' }, '', window.location.pathname);
     });
 
-    // Overlay click outside
     overlay.addEventListener('click', function(e) {
       if (e.target === overlay) {
-        history.back();
+        overlay.style.display = 'none';
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
       }
     });
 
-    // ====== HELPERS ======
     function getRandomRating() { return (4 + Math.random() * 0.8).toFixed(1); }
     function getRandomSize() { return (30 + Math.floor(Math.random() * 40)) + ' MB'; }
     function getRandomVotes() { 
@@ -505,9 +492,8 @@
       return num + 'K';
     }
 
-    let historyStack = []; // Stores the game objects for back navigation
+    let historyStack = [];
 
-    // ====== TOC TOGGLE ======
     document.getElementById('tocToggle').addEventListener('click', function() {
       const body = document.getElementById('tocBody');
       const arrow = document.getElementById('tocArrow');
@@ -515,7 +501,6 @@
       arrow.classList.toggle('open');
     });
 
-    // ====== RENDER MAIN GRID ======
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -566,7 +551,6 @@
     }
     renderGrid();
 
-    // ====== GENERATE UNIQUE BONUSES ======
     function getUniqueBonuses(gameName) {
       const seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       return {
@@ -598,7 +582,6 @@
       };
     }
 
-    // ====== SHOW DETAIL ======
     function showDetail(game, pushHistory = true) {
       if (pushHistory) {
         historyStack.push(game);
@@ -677,7 +660,6 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // Populate game tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -709,7 +691,6 @@
         tagsContainer.appendChild(tag);
       });
       
-      // Related games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -770,11 +751,9 @@
         });
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      // Push state for detail view
-      history.pushState({ detail: true }, '');
     }
 
-    // ====== MAIN GRID CARD CLICKS ======
+    // Main grid clicks
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -792,7 +771,6 @@
       });
     });
 
-    // ====== DOWNLOAD TITLE CLICK ======
     document.getElementById('detailTitle').addEventListener('click', function() {
       const url = document.getElementById('detailDownloadBtn').href;
       if (url && url !== '#') {
@@ -800,20 +778,18 @@
       }
     });
 
-    // ====== GO BACK (unlimited back, one step at a time) ======
+    // ====== GO BACK: unlimited back, one step at a time ======
     function goBack() {
-      // If overlay is open, close it and return (don't go back further)
+      // If overlay is open, close it first
       if (overlay.style.display === 'flex') {
         overlay.style.display = 'none';
-        // Replace state to remove modal state
         history.replaceState({ page: 'main' }, '', window.location.pathname);
         return;
       }
 
-      // If in detail view
+      // If in detail view, go back one step
       if (detailView.style.display === 'block') {
         if (historyStack.length > 1) {
-          // Pop current, show previous
           historyStack.pop();
           const prevGame = historyStack[historyStack.length - 1];
           if (prevGame) {
@@ -830,7 +806,7 @@
         return;
       }
 
-      // On main grid, stay on page (prevent exit)
+      // On main grid, stay on page
       history.pushState(null, null, location.href);
     }
 
@@ -843,33 +819,30 @@
       history.pushState(null, null, location.href);
     }
 
-    // ====== BACK BUTTON (in detail view) ======
     backBtn.addEventListener('click', goBack);
 
-    // ====== POPSTATE (browser back) ======
+    // ====== POPSTATE: handles browser back button ======
     window.addEventListener('popstate', function(e) {
-      // If overlay is open, close it and stop
+      // Priority 1: If overlay is open, close it
       if (overlay.style.display === 'flex') {
         overlay.style.display = 'none';
-        // Replace state to remove modal state
         history.replaceState({ page: 'main' }, '', window.location.pathname);
         return;
       }
 
-      // If in detail view, go back one step
+      // Priority 2: If in detail view, go back one step
       if (detailView.style.display === 'block') {
         goBack();
         return;
       }
 
-      // Otherwise, stay on page
+      // Priority 3: On main grid, stay on page
       history.pushState(null, null, location.href);
     });
 
     // Initial push state to prevent exit
     history.pushState(null, null, location.href);
 
-    // ====== SHARE BUTTON ======
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
