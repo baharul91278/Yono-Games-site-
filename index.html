@@ -46,9 +46,55 @@
     .share-btn { background: #1e293b; color: white; border: none; padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: 0.15s; }
     .share-btn:active { transform: scale(0.95); }
     .share-btn svg { width: 14px; height: 14px; fill: white; }
-    .telegram-btn { display: inline-block; width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.15s; flex-shrink: 0; }
+    
+    /* ====== PREMIUM TELEGRAM ICON ====== */
+    .telegram-btn { 
+      display: inline-block; 
+      width: 34px; 
+      height: 34px; 
+      border-radius: 50%; 
+      overflow: hidden; 
+      background: #000; 
+      border: 2px solid #1a1a1a;
+      flex-shrink: 0;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 150, 255, 0.3), 0 0 30px rgba(0, 150, 255, 0.1);
+      animation: telegramGlow 2s ease-in-out infinite;
+      transition: 0.3s;
+    }
+    .telegram-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(0, 150, 255, 0.15), transparent, rgba(0, 200, 255, 0.1), transparent);
+      animation: telegramSpin 4s linear infinite;
+    }
+    .telegram-btn img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+      position: relative;
+      z-index: 1;
+      border-radius: 50%;
+    }
+    .telegram-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 150, 255, 0.5), 0 0 50px rgba(0, 150, 255, 0.2);
+    }
     .telegram-btn:active { transform: scale(0.95); }
-    .telegram-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    @keyframes telegramGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(0, 150, 255, 0.3), 0 0 30px rgba(0, 150, 255, 0.1); }
+      50% { box-shadow: 0 0 25px rgba(0, 150, 255, 0.5), 0 0 50px rgba(0, 200, 255, 0.2); }
+    }
+    @keyframes telegramSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     
     .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 8px 0; overflow: hidden; border-bottom: 2px solid #e9edf4; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1); }
     .marquee-container marquee { color: #ffffff; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
@@ -68,7 +114,7 @@
     
     .detail-card { background: white; padding: 16px; border-bottom: 1px solid #e9edf4; }
     .detail-top { display: flex; gap: 14px; align-items: center; }
-    .detail-img { width: 72px; height: 72px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
+    .detail-img { width: 72px; height: 72px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; position: relative; }
     .detail-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .detail-info { flex: 1; }
     .detail-info .game-name { font-weight: 800; font-size: 1.2rem; color: #0b1e33; letter-spacing: -0.3px; }
@@ -154,9 +200,41 @@
     .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 10px; border-radius: 40px; font-weight: 600; font-size: 0.45rem; white-space: nowrap; cursor: pointer; }
     
     #mainGrid { display: flex; flex-direction: column; gap: 8px; padding: 10px; }
-    .card { background: white; border-radius: 14px; padding: 10px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; cursor: pointer; }
+    .card { background: white; border-radius: 14px; padding: 10px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; cursor: pointer; position: relative; overflow: hidden; }
     .card:active { transform: scale(0.97); background: #fafcff; }
-    .card-img { width: 48px; height: 48px; border-radius: 12px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; }
+    
+    /* ====== CARD NUMBER BADGE ====== */
+    .card-number {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      background: #000;
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.55rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      border: 1.5px solid #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      letter-spacing: 0.3px;
+    }
+    
+    .card-img { 
+      width: 48px; 
+      height: 48px; 
+      border-radius: 12px; 
+      background: #f0f4ff; 
+      flex-shrink: 0; 
+      overflow: hidden; 
+      border: 1px solid #e2e8f0;
+      margin-left: 22px;
+      position: relative;
+    }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .card-info { flex: 1; display: flex; flex-direction: column; gap: 1px; }
     .card-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; }
@@ -191,6 +269,8 @@
       .toc-header .toc-title { font-size: 0.8rem; }
       .toc-item .toc-content { font-size: 0.7rem; }
       .game-tag { font-size: 0.6rem; padding: 4px 10px; }
+      .card-number { width: 18px; height: 18px; font-size: 0.45rem; top: 3px; left: 3px; }
+      .card-img { margin-left: 16px; width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -388,7 +468,6 @@
   (function() {
     // ====== ALL GAMES LIST ======
     const games = [
-      // Existing 35 games
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
       { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg" },
@@ -424,7 +503,6 @@
       { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg" },
       { name: "Slots Winner Pro", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1784299271", img: "https://i.ibb.co/wNYf5LG8/slots-winner.jpg" },
       { name: "MBM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg" },
-      // New 10 apps added
       { name: "Goa Spin", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/FbpzMnQx/goa-spin.jpg" },
       { name: "101Z", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/F4tpkSSm/101z.jpg" },
       { name: "777 Game", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://t.me/yonogamestite", img: "https://i.ibb.co/YFG8D6NF/777-game.jpg" },
@@ -445,7 +523,7 @@
       return true;
     });
 
-    console.log('Total unique games:', uniqueGames.length); // 45
+    console.log('Total unique games:', uniqueGames.length);
 
     const mainGrid = document.getElementById('mainGrid');
     const detailView = document.getElementById('detailView');
@@ -532,6 +610,12 @@
         card.dataset.size = getRandomSize();
         card.dataset.votes = getRandomVotes();
 
+        // Number badge
+        const numberBadge = document.createElement('div');
+        numberBadge.className = 'card-number';
+        numberBadge.textContent = index + 1;
+        card.appendChild(numberBadge);
+
         const imgDiv = document.createElement('div');
         imgDiv.className = 'card-img';
         const img = document.createElement('img');
@@ -540,12 +624,13 @@
         img.loading = 'lazy';
         img.onerror = function() { this.src = 'https://i.ibb.co/LXqV77rd/yono-games.jpg'; };
         imgDiv.appendChild(img);
+        card.appendChild(imgDiv);
 
         const infoDiv = document.createElement('div');
         infoDiv.className = 'card-info';
         const nameDiv = document.createElement('div');
         nameDiv.className = 'card-name';
-        nameDiv.textContent = (index + 1) + '. ' + game.name;
+        nameDiv.textContent = game.name;
         const bonusDiv = document.createElement('div');
         bonusDiv.className = 'card-bonus';
         bonusDiv.textContent = '🔴 Sign Up Bonus ' + game.bonus;
@@ -555,14 +640,13 @@
         infoDiv.appendChild(nameDiv);
         infoDiv.appendChild(bonusDiv);
         infoDiv.appendChild(withdrawDiv);
+        card.appendChild(infoDiv);
 
         const downloadBtn = document.createElement('span');
         downloadBtn.className = 'card-download-sm';
         downloadBtn.textContent = 'Download';
-
-        card.appendChild(imgDiv);
-        card.appendChild(infoDiv);
         card.appendChild(downloadBtn);
+
         mainGrid.appendChild(card);
       });
     }
@@ -850,19 +934,20 @@
 
     history.pushState(null, null, location.href);
 
+    // ====== SHARE BUTTON WITH NEW LINK ======
     document.getElementById('shareBtn').addEventListener('click', function() {
+      const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
       if (navigator.share) {
         navigator.share({
           title: 'All Yono Games Site',
           text: 'Download best gaming apps: 567 Slots, Saga Slots, Jaiho 91, Rummy Ludo, ABC Rummy & more! Get ₹45 Bonus & ₹100 Withdrawal.',
-          url: 'https://allyonogamessite.com/'
+          url: shareUrl
         }).catch(() => {});
       } else {
-        const url = 'https://allyonogamessite.com/';
-        navigator.clipboard.writeText(url).then(() => {
+        navigator.clipboard.writeText(shareUrl).then(() => {
           alert('Link copied to clipboard! Share it with your friends.');
         }).catch(() => {
-          prompt('Copy this link to share:', url);
+          prompt('Copy this link to share:', shareUrl);
         });
       }
     });
