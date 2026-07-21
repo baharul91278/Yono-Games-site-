@@ -43,57 +43,128 @@
     .header-left .site-name small { display: block; font-weight: 400; font-size: 0.5rem; color: #64748b; }
     .header-right { display: flex; align-items: center; gap: 10px; }
     .header-right .domain-name { font-weight: 600; font-size: 0.6rem; color: #1e293b; background: #f1f5f9; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; white-space: nowrap; }
-    .share-btn { background: #1e293b; color: white; border: none; padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: 0.15s; }
+    
+    /* ====== BLACK SHARE BUTTON ====== */
+    .share-btn { 
+      background: #000; 
+      color: white; 
+      border: none; 
+      padding: 4px 12px; 
+      border-radius: 40px; 
+      font-weight: 600; 
+      font-size: 0.55rem; 
+      cursor: pointer; 
+      display: flex; 
+      align-items: center; 
+      gap: 4px; 
+      white-space: nowrap; 
+      transition: 0.2s;
+      border: 1px solid #222;
+    }
     .share-btn:active { transform: scale(0.95); }
+    .share-btn:hover { background: #1a1a1a; }
     .share-btn svg { width: 14px; height: 14px; fill: white; }
     
-    /* ====== PREMIUM TELEGRAM ICON ====== */
+    /* ====== PREMIUM TELEGRAM ICON - 4 CORNERS LED ====== */
     .telegram-btn { 
       display: inline-block; 
       width: 34px; 
       height: 34px; 
       border-radius: 50%; 
-      overflow: hidden; 
-      background: #000; 
-      border: 2px solid #1a1a1a;
+      overflow: visible;
       flex-shrink: 0;
       position: relative;
-      box-shadow: 0 0 15px rgba(0, 150, 255, 0.3), 0 0 30px rgba(0, 150, 255, 0.1);
-      animation: telegramGlow 2s ease-in-out infinite;
+      background: #000;
+      border: 2px solid #1a1a1a;
+      box-shadow: 
+        0 0 10px rgba(0, 255, 100, 0.3),
+        0 0 20px rgba(0, 255, 200, 0.1);
       transition: 0.3s;
+      padding: 2px;
+    }
+    .telegram-btn::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #00ff00 0deg 30deg,
+        #00ffff 90deg 120deg,
+        #ff00ff 180deg 210deg,
+        #ffff00 270deg 300deg,
+        #00ff00 360deg
+      );
+      animation: ledSpin 2s linear infinite;
+      z-index: -1;
+      padding: 3px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
     }
     .telegram-btn::after {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(0, 150, 255, 0.15), transparent, rgba(0, 200, 255, 0.1), transparent);
-      animation: telegramSpin 4s linear infinite;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 45deg,
+        rgba(0, 255, 0, 0.3) 0deg 20deg,
+        rgba(0, 255, 255, 0.3) 90deg 110deg,
+        rgba(255, 0, 255, 0.3) 180deg 200deg,
+        rgba(255, 255, 0, 0.3) 270deg 290deg,
+        rgba(0, 255, 0, 0.3) 360deg
+      );
+      animation: ledSpin 3s linear infinite reverse;
+      z-index: -2;
+      filter: blur(8px);
     }
     .telegram-btn img { 
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
       display: block; 
+      border-radius: 50%;
       position: relative;
       z-index: 1;
-      border-radius: 50%;
+      background: #000;
     }
     .telegram-btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(0, 150, 255, 0.5), 0 0 50px rgba(0, 150, 255, 0.2);
+      box-shadow: 
+        0 0 20px rgba(0, 255, 100, 0.5),
+        0 0 40px rgba(0, 255, 200, 0.2);
     }
     .telegram-btn:active { transform: scale(0.95); }
     
-    @keyframes telegramGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(0, 150, 255, 0.3), 0 0 30px rgba(0, 150, 255, 0.1); }
-      50% { box-shadow: 0 0 25px rgba(0, 150, 255, 0.5), 0 0 50px rgba(0, 200, 255, 0.2); }
-    }
-    @keyframes telegramSpin {
+    @keyframes ledSpin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+    }
+    
+    /* 4 corner LED dots */
+    .telegram-btn .corner-led {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      z-index: 2;
+      animation: ledPulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 8px currentColor;
+    }
+    .telegram-btn .corner-led.tl { top: -1px; left: -1px; color: #00ff00; background: #00ff00; animation-delay: 0s; }
+    .telegram-btn .corner-led.tr { top: -1px; right: -1px; color: #00ffff; background: #00ffff; animation-delay: 0.4s; }
+    .telegram-btn .corner-led.bl { bottom: -1px; left: -1px; color: #ff00ff; background: #ff00ff; animation-delay: 0.8s; }
+    .telegram-btn .corner-led.br { bottom: -1px; right: -1px; color: #ffff00; background: #ffff00; animation-delay: 1.2s; }
+    
+    @keyframes ledPulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 15px currentColor, 0 0 30px currentColor; }
     }
     
     .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 8px 0; overflow: hidden; border-bottom: 2px solid #e9edf4; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1); }
@@ -271,6 +342,7 @@
       .game-tag { font-size: 0.6rem; padding: 4px 10px; }
       .card-number { width: 18px; height: 18px; font-size: 0.45rem; top: 3px; left: 3px; }
       .card-img { margin-left: 16px; width: 40px; height: 40px; }
+      .telegram-btn .corner-led { width: 4px; height: 4px; }
     }
   </style>
 </head>
@@ -285,6 +357,10 @@
     <div class="header-right">
       <span class="domain-name">AllYonoGamesSite.com</span>
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+        <span class="corner-led tl"></span>
+        <span class="corner-led tr"></span>
+        <span class="corner-led bl"></span>
+        <span class="corner-led br"></span>
         <img src="https://i.ibb.co/Wp3zwWc3/telegram-icon.jpg" alt="Telegram">
       </a>
       <button class="share-btn" id="shareBtn">
