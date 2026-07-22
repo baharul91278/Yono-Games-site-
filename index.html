@@ -1,10 +1,9 @@
-0000
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Yono Games - Telegram LED Style</title>
+  <title>Yono Games - Premium LED Icons</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
@@ -34,73 +33,82 @@
     .logo-cyan-round img { width: 90%; height: 90%; object-fit: cover; border-radius: 50%; display: block; }
     @keyframes cyanPulse { 0%,100%{ box-shadow:0 0 15px rgba(0,200,255,0.3),0 0 30px rgba(0,200,255,0.1); } 50%{ box-shadow:0 0 25px rgba(0,200,255,0.5),0 0 50px rgba(0,200,255,0.2); } }
 
-    /* ====== TELEGRAM COLOR MODEL – NO ROUND BACKGROUND, JUST MOVING GRADIENT ====== */
-    .site-name-telegram {
+    .site-name-led-round {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 4px 12px 4px 10px;
+      padding: 4px 16px 4px 14px;
       border-radius: 40px;
-      background: transparent;
+      background: #000;
+      border: 2px solid #1a1a1a;
+      box-shadow: 0 0 20px rgba(0, 255, 100, 0.1), 0 0 40px rgba(0, 200, 255, 0.05);
       min-height: 32px;
       overflow: visible;
-      border: none;
-      box-shadow: none;
     }
-    /* Moving gradient text – Telegram style */
-    .site-name-telegram .site-name-text {
-      font-weight: 800;
-      font-size: 0.7rem;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-      background: linear-gradient(90deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: telegramGradientMove 6s linear infinite;
-      text-shadow: none;
-      filter: drop-shadow(0 0 8px rgba(0,255,0,0.2));
-    }
-    @keyframes telegramGradientMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
-
-    /* Glow ring that moves around – no background, just border glow */
-    .site-name-telegram::before {
+    .site-name-led-round::before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 40px;
-      background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-      animation: ledSlowSpinRound 8s linear infinite;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 50px;
+      background: conic-gradient(from 0deg, #00ff00 0deg 40deg, #00ffff 90deg 130deg, #ffff00 180deg 220deg, #ff00ff 270deg 310deg, #00ff00 360deg);
+      animation: ledSlowSpinRound 10s linear infinite;
       z-index: -1;
-      padding: 2px;
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-      opacity: 0.7;
+      padding: 4px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
     }
-    /* Soft glow behind */
-    .site-name-telegram::after {
+    .site-name-led-round::after {
       content: '';
       position: absolute;
-      top: -6px;
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
-      border-radius: 40px;
-      background: conic-gradient(from 30deg, rgba(0,255,0,0.1), rgba(0,255,255,0.1), rgba(255,255,0,0.1), rgba(255,0,255,0.1), rgba(0,255,0,0.1));
-      animation: ledSlowSpinRound 10s linear infinite reverse;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border-radius: 50px;
+      background: conic-gradient(from 30deg, rgba(0,255,0,0.15) 0deg 30deg, rgba(0,255,255,0.15) 90deg 120deg, rgba(255,255,0,0.15) 180deg 210deg, rgba(255,0,255,0.15) 270deg 300deg, rgba(0,255,0,0.15) 360deg);
+      animation: ledSlowSpinRound 12s linear infinite reverse;
       z-index: -2;
-      filter: blur(10px);
-      opacity: 0.5;
+      filter: blur(12px);
+    }
+    @keyframes ledSlowSpinRound { 0%{ transform:rotate(0deg); } 100%{ transform:rotate(360deg); } }
+
+    .site-name-led-round .led-dot-round {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      z-index: 2;
+      animation: ledDotMoveRound 10s linear infinite;
+      box-shadow: 0 0 12px currentColor;
+    }
+    .site-name-led-round .led-dot-round.green { background: #00ff00; color: #00ff00; animation-delay:0s; }
+    .site-name-led-round .led-dot-round.cyan { background: #00ffff; color: #00ffff; animation-delay:2.5s; }
+    .site-name-led-round .led-dot-round.yellow { background: #ffff00; color: #ffff00; animation-delay:5s; }
+    .site-name-led-round .led-dot-round.pink { background: #ff00ff; color: #ff00ff; animation-delay:7.5s; }
+
+    @keyframes ledDotMoveRound {
+      0% { top: -4px; left: 50%; transform: translateX(-50%); }
+      25% { top: 50%; left: calc(100% + 4px); transform: translateY(-50%); }
+      50% { top: calc(100% + 4px); left: 50%; transform: translateX(-50%); }
+      75% { top: 50%; left: -4px; transform: translateY(-50%); }
+      100% { top: -4px; left: 50%; transform: translateX(-50%); }
     }
 
-    @keyframes ledSlowSpinRound { 0%{ transform:rotate(0deg); } 100%{ transform:rotate(360deg); } }
+    .site-name-led-round .site-name-text {
+      font-weight: 700;
+      font-size: 0.6rem;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 15px rgba(0, 255, 100, 0.15), 0 0 30px rgba(0, 200, 255, 0.1);
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+      padding: 2px 0;
+    }
 
     .header-right { display: flex; align-items: center; gap: 8px; }
 
@@ -194,6 +202,88 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 8px 20px; border-radius: 60px; font-weight: 700; font-size: 0.85rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; }
     .detail-download .download-btn:active { transform: scale(0.97); }
 
+    /* ---------- PREMIUM LED ICON STYLES ---------- */
+    .led-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+      background: #000;
+      border: 2px solid #1a1a1a;
+      box-shadow: 0 0 15px rgba(0,255,0,0.1);
+    }
+    .led-icon .inner-icon {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+      z-index: 2;
+      position: relative;
+      text-shadow: 0 0 8px currentColor;
+      letter-spacing: 0.5px;
+    }
+    /* rotating border variants */
+    .led-icon.green-cyan::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #00ff00 0deg 60deg, #00ffff 120deg 180deg, #00ff00 240deg 300deg, #00ff00 360deg);
+      animation: ledSlowSpinRound 8s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.gold-pink::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #ffd700 0deg 50deg, #ff69b4 100deg 150deg, #ffd700 200deg 250deg, #ff69b4 300deg 350deg, #ffd700 360deg);
+      animation: ledSlowSpinRound 9s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.red-dark::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #ff0000 0deg 50deg, #8b0000 100deg 150deg, #ff0000 200deg 250deg, #8b0000 300deg 350deg, #ff0000 360deg);
+      animation: ledSlowSpinRound 7s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.green-red-yellow::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #00ff00 0deg 40deg, #ff0000 80deg 120deg, #ffff00 160deg 200deg, #00ff00 240deg 280deg, #ff0000 320deg 360deg);
+      animation: ledSlowSpinRound 10s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.yellow-white-green::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #ffff00 0deg 40deg, #ffffff 80deg 120deg, #006400 160deg 200deg, #ffff00 240deg 280deg, #ffffff 320deg 360deg);
+      animation: ledSlowSpinRound 11s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.red-yellow::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #ff0000 0deg 40deg, #ffff00 80deg 120deg, #ff0000 160deg 200deg, #ffff00 240deg 280deg, #ff0000 320deg 360deg);
+      animation: ledSlowSpinRound 8s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.white-red::before {
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #ffffff 0deg 40deg, #ff0000 80deg 120deg, #ffffff 160deg 200deg, #ff0000 240deg 280deg, #ffffff 320deg 360deg);
+      animation: ledSlowSpinRound 9s linear infinite; z-index: 0;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
+    .led-icon.glow-bg {
+      box-shadow: 0 0 20px rgba(0,255,0,0.15), 0 0 40px rgba(0,200,255,0.05);
+    }
+    .led-icon .inner-icon { 
+      font-size: 0.7rem; 
+      font-weight: 800; 
+      letter-spacing: 0.3px;
+    }
+
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -269,8 +359,9 @@
 
     @media (max-width: 420px) {
       .logo-cyan-round { width: 30px; height: 30px; }
-      .site-name-telegram { padding: 3px 8px; min-height: 26px; }
-      .site-name-telegram .site-name-text { font-size: 0.55rem; }
+      .site-name-led-round { padding: 3px 12px 3px 10px; min-height: 26px; }
+      .site-name-led-round .site-name-text { font-size: 0.5rem; }
+      .site-name-led-round .led-dot-round { width: 6px; height: 6px; }
       .share-btn { font-size: 0.4rem; padding: 2px 8px; }
       .share-btn svg { width: 10px; height: 10px; }
       .telegram-btn { width: 28px; height: 28px; }
@@ -285,6 +376,8 @@
       .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
       .card-img { margin-left: 14px; width: 36px; height: 36px; }
       .telegram-btn .corner-led { width: 4px; height: 4px; }
+      .led-icon { width: 22px; height: 22px; }
+      .led-icon .inner-icon { font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -296,8 +389,11 @@
       <div class="logo-cyan-round">
         <img src="https://i.ibb.co/CssC2WbG/1000022725.jpg" alt="All Yono Games Site" loading="eager">
       </div>
-      <!-- TELEGRAM COLOR MODEL – NO ROUND BACKGROUND, JUST MOVING GRADIENT + GLOW BORDER -->
-      <div class="site-name-telegram">
+      <div class="site-name-led-round">
+        <span class="led-dot-round green"></span>
+        <span class="led-dot-round cyan"></span>
+        <span class="led-dot-round yellow"></span>
+        <span class="led-dot-round pink"></span>
         <span class="site-name-text">All Yono Games Site</span>
       </div>
     </div>
